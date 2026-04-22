@@ -2,18 +2,10 @@ import { SITE_CONFIG } from '../config'
 import './Bonus.css'
 
 export default function Bonus() {
-  const { bonuses } = SITE_CONFIG
-
-  // Soma o valor total dos bônus para mostrar o valor percebido
-  const totalValue = bonuses
-    .map(b => parseFloat(b.value.replace('Valor: R$', '').replace(',', '.')))
-    .reduce((a, c) => a + c, 0)
-    .toFixed(2)
-    .replace('.', ',')
+  const { bonuses, bonusIntro, bonusWarning, hero } = SITE_CONFIG
 
   return (
     <section className="bonus" id="bonus">
-      {/* Fundo com padrão decorativo */}
       <div className="bonus__bg" aria-hidden="true">
         <div className="bonus__bg-glow" />
       </div>
@@ -24,50 +16,47 @@ export default function Bonus() {
         <div className="bonus__header">
           <span className="badge">✦ Surpresas incluídas</span>
           <h2 className="section-title bonus__title" style={{ marginTop: 16 }}>
-            Bônus exclusivos para você
+            Bônus Exclusivos Liberados Hoje
           </h2>
-          <p className="section-subtitle" style={{ marginTop: 12 }}>
-            Além de tudo, você ainda leva esses presentes especiais — sem custo adicional.
-          </p>
           <div className="section-divider" />
         </div>
 
-        {/* Cards de bônus */}
-        <div className="bonus__list">
-          {bonuses.map((bonus, i) => (
-            <div key={bonus.id} className="bonus__card" style={{ animationDelay: `${i * 0.15}s` }}>
-              {/* Número / Badge */}
-              <div className="bonus__number">
-                <span>{String(i + 1).padStart(2, '0')}</span>
-              </div>
+        {/* Card principal */}
+        <div className="bonus__main-card">
 
-              {/* Ícone */}
-              <div className="bonus__icon-wrap">
-                <span className="bonus__icon" role="img" aria-label={bonus.title}>
-                  {bonus.icon}
-                </span>
-              </div>
+          {/* Texto de abertura — voz pessoal da influencer */}
+          {/* ✏️ Edite em src/config.js → bonusIntro */}
+          <p className="bonus__intro">{bonusIntro}</p>
 
-              {/* Conteúdo */}
-              <div className="bonus__content">
-                <span className="bonus__badge-tag">{bonus.badge}</span>
-                {/* ✏️ Edite bônus em src/config.js → bonuses[] */}
-                <h3 className="bonus__item-title">{bonus.title}</h3>
-                <p className="bonus__item-desc">{bonus.description}</p>
-                <span className="bonus__value">{bonus.value}</span>
-              </div>
+          {/* Lista de itens */}
+          <ul className="bonus__items">
+            {bonuses.map((item, i) => (
+              <li
+                key={item.id}
+                className="bonus__item"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                <span className="bonus__item-icon">{item.icon}</span>
+                {/* ✏️ Edite os itens em src/config.js → bonuses[] */}
+                <span className="bonus__item-text">{item.title}</span>
+              </li>
+            ))}
+          </ul>
 
-              {/* Indicador de gratuito */}
-              <div className="bonus__free-tag" aria-hidden="true">GRÁTIS</div>
-            </div>
-          ))}
-        </div>
+          {/* Aviso de escassez */}
+          {/* ✏️ Edite em src/config.js → bonusWarning */}
+          <div className="bonus__warning">
+            <span className="bonus__warning-icon">⚠️</span>
+            <p>{bonusWarning}</p>
+          </div>
 
-        {/* Valor total percebido */}
-        <div className="bonus__total">
-          <p className="bonus__total-label">Valor total dos bônus:</p>
-          <p className="bonus__total-value">R$ {totalValue}</p>
-          <p className="bonus__total-sub">Tudo incluso na sua assinatura hoje</p>
+          {/* CTA dentro do card */}
+          <div className="bonus__cta">
+            <a href={hero.ctaLink} className="btn-primary btn-large">
+              {hero.ctaText}
+            </a>
+          </div>
+
         </div>
 
       </div>

@@ -22,13 +22,13 @@ export const SITE_CONFIG = {
   // ─── HERO / TOPO ─────────────────────────────────────────
   hero: {
     // ✏️ Headline principal — frase de impacto
-    headline: 'Ela preparou algo\nespecial para você',
+    headline: 'Eu preparei algo\nespecial pra você',
     // ✏️ Subheadline — aprofunda a proposta
-    subheadline: 'Acesso ao conteúdo mais exclusivo, bastidores reais e uma oferta que só existe hoje.',
+    subheadline: 'Separei conteúdos que não mostro em lugar nenhum. Se você chegou até aqui, é porque merece ver.',
     // ✏️ Texto de reforço — cria urgência ou prova social
-    reinforcement: '+ de 12.000 pessoas já fazem parte. Não fique de fora.',
+    reinforcement: '+ de 12.000 pessoas já entraram. Vem também.',
     // ✏️ Texto do botão CTA principal
-    ctaText: 'QUERO MEU ACESSO AGORA →',
+    ctaText: '👉 QUERO MEU ACESSO AGORA',
     // ✏️ Link do botão CTA — coloque o link do Hotmart, Kiwify, etc.
     ctaLink: '#oferta',
     // ✏️ Texto pequeno abaixo do botão (ex: garantia, segurança)
@@ -113,36 +113,35 @@ export const SITE_CONFIG = {
   ],
 
   // ─── BÔNUS ───────────────────────────────────────────────
-  // ✏️ Edite cada bônus — quanto mais valor percebido, melhor
+  // ✏️ Texto de abertura da seção de bônus
+  bonusIntro: 'Eu resolvi liberar algo que normalmente eu não mostro assim…',
+
+  // ✏️ Lista de itens do bônus (ícone + texto)
   bonuses: [
     {
       id: 1,
-      badge: 'BÔNUS 1',
-      // ✏️ Nome do bônus
-      title: 'Pack de Fotos Inéditas',
-      // ✏️ Descrição persuasiva do bônus
-      description: 'Uma coleção exclusiva de fotos nunca antes publicadas. Imagens de alta qualidade disponíveis para você no momento do acesso.',
-      // ✏️ Valor percebido do bônus (para mostrar que está ganhando mais)
-      value: 'Valor: R$47,00',
-      icon: '📸',
+      icon: '🔥',
+      title: 'Meu ensaio completo pra você ver à vontade, sem limitações',
     },
     {
       id: 2,
-      badge: 'BÔNUS 2',
-      title: 'Vídeo Mensagem Personalizada',
-      description: 'Ela grava uma mensagem especial só para os membros desta oferta. Um momento único e inesquecível.',
-      value: 'Valor: R$37,00',
-      icon: '💌',
+      icon: '📖',
+      title: 'Playboy +500 em Full HD completa',
     },
     {
       id: 3,
-      badge: 'BÔNUS 3',
-      title: 'Acesso ao Grupo Secreto',
-      description: 'Entre para o grupo reservado onde ela compartilha os bastidores da vida real, pensamentos e momentos íntimos do dia a dia.',
-      value: 'Valor: R$27,00',
-      icon: '🔐',
+      icon: '📚',
+      title: 'Revista Sexy +500 completa',
+    },
+    {
+      id: 4,
+      icon: '🎯',
+      title: 'E ainda um conteúdo especial sobre controle e conquista que pode mudar totalmente seu jogo',
     },
   ],
+
+  // ✏️ Aviso de escassez abaixo da lista
+  bonusWarning: 'Tudo isso incluso no seu acesso… mas não sei até quando vou deixar disponível assim.',
 
   // ─── OFERTA / PREÇOS ──────────────────────────────────────
   offer: {
