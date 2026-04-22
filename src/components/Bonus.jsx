@@ -14,9 +14,9 @@ export default function Bonus() {
 
         {/* Cabeçalho */}
         <div className="bonus__header">
-          <span className="badge">✦ Surpresas incluídas</span>
+          <span className="badge">✦ Isso normalmente eu não mostro…</span>
           <h2 className="section-title bonus__title" style={{ marginTop: 16 }}>
-            Bônus Exclusivos Liberados Hoje
+            O que vem junto quando você entrar hoje
           </h2>
           <div className="section-divider" />
         </div>

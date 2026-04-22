@@ -10,12 +10,12 @@ export default function WhatYouGet() {
 
         {/* Cabeçalho */}
         <div className="wyg__header">
-          <span className="badge">✦ Tudo incluso</span>
+          <span className="badge">✦ Só pra quem entra</span>
           <h2 className="section-title" style={{ marginTop: 16 }}>
-            O que você vai receber
+            O que você vai desbloquear quando entrar
           </h2>
           <p className="section-subtitle" style={{ marginTop: 12 }}>
-            Tudo pensado para oferecer a melhor experiência, do início ao fim.
+            Isso não tá disponível em lugar nenhum. Só aqui. Só pra quem decide entrar.
           </p>
           <div className="section-divider" />
         </div>

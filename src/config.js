@@ -21,18 +21,12 @@ export const SITE_CONFIG = {
 
   // ─── HERO / TOPO ─────────────────────────────────────────
   hero: {
-    // ✏️ Headline principal — frase de impacto
-    headline: 'Eu preparei algo\nespecial pra você',
-    // ✏️ Subheadline — aprofunda a proposta
-    subheadline: 'Separei conteúdos que não mostro em lugar nenhum. Se você chegou até aqui, é porque merece ver.',
-    // ✏️ Texto de reforço — cria urgência ou prova social
-    reinforcement: '+ de 12.000 pessoas já entraram. Vem também.',
-    // ✏️ Texto do botão CTA principal
-    ctaText: '👉 QUERO MEU ACESSO AGORA',
-    // ✏️ Link do botão CTA — coloque o link do Hotmart, Kiwify, etc.
+    headline: 'Isso aqui não é\npra todo mundo…',
+    subheadline: 'Tem coisas aqui que eu nunca postei em lugar nenhum. Só quem entra consegue ver tudo — sem cortes.',
+    reinforcement: 'Milhares já viram… alguns até se arrependeram de não ter entrado antes.',
+    ctaText: '🔥 ENTRAR E VER SEM RESTRIÇÕES',
     ctaLink: '#oferta',
-    // ✏️ Texto pequeno abaixo do botão (ex: garantia, segurança)
-    ctaSubtext: '🔒 Pagamento 100% seguro · Acesso imediato',
+    ctaSubtext: '🔒 Acesso imediato · Pagamento 100% seguro',
   },
 
   // ─── CARROSSEL DE PRÉVIAS ─────────────────────────────────
@@ -40,34 +34,33 @@ export const SITE_CONFIG = {
   carousel: [
     {
       id: 1,
-      // ✏️ Troque pela sua imagem real
       image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80',
-      label: 'Conteúdo Exclusivo',
+      label: 'Esse foi só um momento…',
     },
     {
       id: 2,
       image: 'https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=600&q=80',
-      label: 'Bastidores',
+      label: 'Aqui começa a ficar interessante',
     },
     {
       id: 3,
       image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
-      label: 'Extras Especiais',
+      label: 'Esse eu quase não posto…',
     },
     {
       id: 4,
       image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80',
-      label: 'Materiais Inéditos',
+      label: 'Nunca mostrei isso antes',
     },
     {
       id: 5,
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
-      label: 'Momentos Únicos',
+      label: 'Só pra quem entra…',
     },
     {
       id: 6,
       image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80',
-      label: 'Área VIP',
+      label: 'Isso daqui eu guardo só pra mim',
     },
   ],
 
@@ -76,93 +69,88 @@ export const SITE_CONFIG = {
   deliverables: [
     {
       id: 1,
-      icon: '🎬',
-      title: 'Conteúdo Principal Completo',
-      description: 'Acesso imediato a todo o conteúdo principal em alta resolução, disponível 24h por dia.',
+      icon: '🔓',
+      title: 'Acesso completo sem censura',
+      description: 'Tudo que eu gravo vai direto pra você. Sem cortes, sem filtros, sem limitações.',
     },
     {
       id: 2,
-      icon: '✨',
-      title: 'Materiais Exclusivos',
-      description: 'Conteúdos que ela não posta em nenhuma outra plataforma. Só para quem faz parte.',
+      icon: '🙈',
+      title: 'Conteúdos que não deixo em lugar nenhum',
+      description: 'Nem no Instagram, nem em nenhuma outra plataforma. Só aqui, só pra quem entra.',
     },
     {
       id: 3,
-      icon: '🎁',
-      title: 'Bônus Surpresa',
-      description: 'Conteúdos extras que chegam periodicamente. Cada semana tem algo novo esperando por você.',
+      icon: '🎬',
+      title: 'Coisas que eu gravei só pra quem entra',
+      description: 'Momentos que eu escolhi guardar pra esse espaço. Você vai entender quando ver.',
     },
     {
       id: 4,
-      icon: '🔄',
-      title: 'Atualizações Constantes',
-      description: 'Novos conteúdos adicionados regularmente. Você sempre vai ter algo novo para aproveitar.',
+      icon: '🔥',
+      title: 'Novos conteúdos toda semana',
+      description: 'Não é arquivo parado. Sempre tem algo novo chegando — e você recebe tudo em primeira mão.',
     },
     {
       id: 5,
       icon: '💬',
-      title: 'Acesso Prioritário',
-      description: 'Mensagens e interações com ela diretamente. Uma conexão real, sem intermediários.',
+      title: 'Acesso direto a mim',
+      description: 'Sem intermediário. Sem filtro. Uma conexão real — do jeito que eu gosto.',
     },
     {
       id: 6,
       icon: '🏆',
-      title: 'Comunidade VIP',
-      description: 'Faça parte de um grupo seleto. Interações exclusivas e conteúdos compartilhados só entre membros.',
+      title: 'Parte de algo que poucos têm',
+      description: 'Esse espaço é seleto de propósito. Não é pra qualquer um. Mas você chegou até aqui.',
     },
   ],
 
   // ─── BÔNUS ───────────────────────────────────────────────
   // ✏️ Texto de abertura da seção de bônus
-  bonusIntro: 'Eu resolvi liberar algo que normalmente eu não mostro assim…',
+  bonusIntro: 'Decidi liberar algumas coisas que normalmente eu guardo só pra mim…',
 
-  // ✏️ Lista de itens do bônus (ícone + texto)
   bonuses: [
     {
       id: 1,
       icon: '🔥',
-      title: 'Meu ensaio completo pra você ver à vontade, sem limitações',
+      title: 'Meu ensaio completo pra você ver sem limite — do começo ao fim',
     },
     {
       id: 2,
-      icon: '📖',
-      title: 'Playboy +500 em Full HD completa',
+      icon: '📸',
+      title: '+500 fotos que eu nunca postei abertas. Nada cortado.',
     },
     {
       id: 3,
-      icon: '📚',
-      title: 'Revista Sexy +500 completa',
+      icon: '📖',
+      title: 'Playboy completa em Full HD — cada página, cada detalhe',
     },
     {
       id: 4,
+      icon: '📚',
+      title: 'Revista Sexy completa — conteúdo que normalmente eu guardo só pra mim',
+    },
+    {
+      id: 5,
       icon: '🎯',
-      title: 'E ainda um conteúdo especial sobre controle e conquista que pode mudar totalmente seu jogo',
+      title: 'Conteúdo especial sobre controle e conquista — isso muda seu jogo',
     },
   ],
 
-  // ✏️ Aviso de escassez abaixo da lista
-  bonusWarning: 'Tudo isso incluso no seu acesso… mas não sei até quando vou deixar disponível assim.',
+  bonusWarning: 'Tudo incluso no seu acesso… não sei até quando deixo assim.',
 
   // ─── OFERTA / PREÇOS ──────────────────────────────────────
   offer: {
     // ✏️ Título da seção de oferta
-    title: 'Oferta por Tempo Limitado',
-    // ✏️ Subtítulo com urgência
-    subtitle: 'Esta condição especial expira hoje à meia-noite.',
-    // ✏️ Preço original (riscado)
+    title: 'Se sair dessa página, pode não encontrar esse valor de novo.',
+    subtitle: 'Esse valor some hoje. Não é papo de marketing — é real.',
     originalPrice: 'R$ 97,00',
-    // ✏️ Preço promocional (em destaque)
     promoPrice: 'R$ 19,90',
-    // ✏️ Período ou frequência (ex: /mês, único, /ano)
     period: '/mês',
-    // ✏️ Texto de urgência
-    urgencyText: '⚡ Apenas hoje neste valor',
-    // ✏️ Texto do botão CTA da oferta
-    ctaText: 'GARANTIR MEU ACESSO AGORA →',
-    // ✏️ Link do botão CTA da oferta
+    urgencyText: '⚡ Esse valor some hoje',
+    ctaText: '🔥 LIBERAR MEU ACESSO AGORA',
     ctaLink: 'https://SEU_LINK_DE_PAGAMENTO_AQUI.com',
-    // ✏️ Texto de segurança / garantia
-    guarantee: '✅ Satisfação garantida · Cancele quando quiser · Suporte 24h',
+    guarantee: '✅ Acesso imediato · Cancele quando quiser · Suporte 24h',
   },
 
   // ─── RODAPÉ ───────────────────────────────────────────────

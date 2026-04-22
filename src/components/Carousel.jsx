@@ -70,12 +70,12 @@ export default function Carousel() {
 
         {/* Cabeçalho — textos brancos */}
         <div className="carousel-section__header">
-          <span className="badge carousel-badge">✦ Prévia exclusiva</span>
+          <span className="badge carousel-badge">✦ Só uma amostra…</span>
           <h2 className="carousel-title">
-            Um gostinho do que você vai receber
+            Eu gravei algo que normalmente não mostro…
           </h2>
           <p className="carousel-subtitle">
-            Só quem faz parte tem acesso a esse nível de conteúdo. Veja uma pequena amostra do que espera por você.
+            Isso aqui é só uma fração. O que tá lá dentro vai além do que você imagina.
           </p>
           <div className="carousel-divider" />
         </div>
