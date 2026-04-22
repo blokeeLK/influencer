@@ -1,0 +1,284 @@
+/* ─── OFERTA FINAL ─── */
+.offer {
+  position: relative;
+  padding: var(--section-pad);
+  background: linear-gradient(160deg, #0F172A 0%, #1E3A5F 60%, #1D4ED8 100%);
+  overflow: hidden;
+  color: var(--white);
+}
+
+.offer__bg {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0;
+}
+
+.offer__bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+}
+
+.offer__bg-glow--1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #3B82F6, transparent);
+  top: -150px; right: -100px;
+}
+
+.offer__bg-glow--2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #60A5FA, transparent);
+  bottom: -100px; left: -80px;
+}
+
+/* ── Inner card ── */
+.offer__inner {
+  position: relative; z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  text-align: center;
+}
+
+/* Urgência */
+.offer__urgency {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.offer__clock { font-size: 1.1rem; }
+
+.offer__countdown {
+  color: #93C5FD;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Cabeçalho */
+.offer__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.offer__badge {
+  background: rgba(37,99,235,0.3);
+  border-color: rgba(59,130,246,0.4);
+  color: #93C5FD;
+}
+
+.offer__title {
+  color: var(--white) !important;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.offer__subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Preço */
+.offer__price-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 36px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.offer__price-from {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.offer__price-label {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.offer__price-original {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: line-through;
+}
+
+.offer__price-to {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.offer__price-by-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.offer__price-promo {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 4.8rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.offer__price-period {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+}
+
+.offer__urgency-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 100px;
+  margin-top: 6px;
+}
+
+/* Resumo dos bônus */
+.offer__bonus-recap {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  width: 100%;
+  text-align: left;
+}
+
+.offer__bonus-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #93C5FD;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.offer__bonus-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.offer__bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.offer__check {
+  width: 20px; height: 20px;
+  background: rgba(37,99,235,0.4);
+  border: 1px solid rgba(59,130,246,0.5);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  color: #93C5FD;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* CTA */
+.offer__cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.offer__cta-btn {
+  width: 100%;
+  max-width: 480px;
+  animation: pulse-glow 2.5s infinite;
+  font-size: 1.05rem;
+  padding: 22px 48px;
+}
+
+.offer__guarantee {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Selos */
+.offer__seals {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  width: 100%;
+}
+
+.offer__seal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offer__seal-icon {
+  font-size: 1.5rem;
+}
+
+.offer__seal-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.offer__seal-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 640px) {
+  .offer__price-box {
+    padding: 28px 24px;
+  }
+
+  .offer__seals {
+    gap: 20px;
+  }
+
+  .offer__bonus-recap {
+    padding: 20px;
+  }
+}
