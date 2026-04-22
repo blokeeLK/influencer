@@ -1,17 +1,13 @@
-import { useState } from 'react'
 import { SITE_CONFIG } from '../config'
 import './Hero.css'
 
 export default function Hero() {
-  const { hero, heroVideo, name } = SITE_CONFIG
-  const [videoLoaded, setVideoLoaded] = useState(false)
+  const { hero } = SITE_CONFIG
 
-  // Quebra de linha no headline via \n
   const headlineLines = hero.headline.split('\n')
 
   return (
     <section className="hero" id="inicio">
-      {/* Fundo decorativo com gradiente */}
       <div className="hero__bg" aria-hidden="true">
         <div className="hero__bg-circle hero__bg-circle--1" />
         <div className="hero__bg-circle hero__bg-circle--2" />
@@ -19,38 +15,19 @@ export default function Hero() {
 
       <div className="container hero__container">
 
-        {/* ── COLUNA ESQUERDA: Vídeo ── */}
+        {/* ── COLUNA ESQUERDA: Vídeo local ── */}
         <div className="hero__video-col animate-fade-up">
           <div className="hero__video-wrapper">
-            {/* Thumbnail enquanto o iframe não carrega */}
-            {!videoLoaded && (
-              <div
-                className="hero__video-thumb"
-                style={{ backgroundImage: `url(${heroVideo.thumbnail})` }}
-                onClick={() => setVideoLoaded(true)}
-                role="button"
-                aria-label="Reproduzir vídeo"
-              >
-                <div className="hero__play-btn">
-                  <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <div className="hero__video-label">▶ Assista agora</div>
-              </div>
-            )}
 
-            {/* ✏️ Troque a URL do vídeo em src/config.js → heroVideo.url */}
-            {videoLoaded && (
-              <iframe
-                className="hero__iframe"
-                src={`${heroVideo.url}?autoplay=1&rel=0&modestbranding=1`}
-                title={`Vídeo de ${name}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            )}
+            {/* ✏️ Para trocar o vídeo: substitua o arquivo public/vls.mp4 */}
+            <video
+              className="hero__video"
+              src="/vls.mp4"
+              poster="/video-thumb.jpg"
+              controls
+              playsInline
+              preload="metadata"
+            />
 
             {/* Badge de exclusividade */}
             <div className="hero__video-badge" aria-hidden="true">
@@ -89,7 +66,6 @@ export default function Hero() {
             <p className="hero__cta-sub">{hero.ctaSubtext}</p>
           </div>
 
-          {/* Indicadores de confiança */}
           <div className="hero__trust animate-fade-up-delay-4">
             <div className="hero__trust-item">
               <span className="hero__trust-icon">👁️</span>
