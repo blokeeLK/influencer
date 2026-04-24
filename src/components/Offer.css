@@ -289,22 +289,90 @@
   font-size: 1.2rem;
 }
 
-/* ─── RESPONSIVO ─── */
+/* ─── RESPONSIVO MOBILE ─── */
 @media (max-width: 600px) {
+  /* Seção com menos padding lateral */
+  .offer {
+    padding: 40px 12px;
+  }
+
+  /* Card menor e sem overflow */
+  .offer__card {
+    border-radius: var(--radius-md);
+  }
+
+  /* Todos os blocos internos com padding menor */
   .offer__card-header,
   .offer__price-block,
   .offer__bonus-block,
   .offer__cta-wrap {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
+  .offer__card-header {
+    padding-top: 16px;
+    padding-bottom: 12px;
+  }
+
+  .offer__price-block {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .offer__bonus-block {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 12px;
+  }
+
+  /* Preço menor no mobile */
   .offer__price-promo {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+    font-size: clamp(2.4rem, 11vw, 3.2rem);
   }
 
+  /* Botão CTA — nunca sai da borda */
+  .offer__cta-wrap {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .offer__cta-btn {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.92rem;
+    padding: 16px 16px;
+    box-sizing: border-box;
+  }
+
+  /* Selos menores */
   .offer__seal {
-    font-size: 0.7rem;
-    padding: 14px 4px;
+    font-size: 0.65rem;
+    padding: 12px 4px;
+    gap: 3px;
+  }
+
+  .offer__seal span:first-child {
+    font-size: 1rem;
+  }
+
+  /* Urgência menor */
+  .offer__urgency {
+    font-size: 0.82rem;
+    padding: 8px 16px;
+  }
+
+  /* Bônus intro e textos menores */
+  .offer__bonus-intro {
+    font-size: 0.85rem;
+  }
+
+  .offer__bonus-text {
+    font-size: 0.82rem;
+  }
+
+  .offer__bonus-warning {
+    font-size: 0.8rem;
+    padding: 10px 12px;
   }
 }

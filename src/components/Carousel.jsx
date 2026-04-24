@@ -5,18 +5,27 @@ import './Carousel.css'
 export default function Carousel() {
   const { carousel } = SITE_CONFIG
 
-  // Duplica os itens dos dois lados para loop infinito sem salto branco
+  // Duplica para loop infinito
   const items = [...carousel, ...carousel, ...carousel]
   const total = carousel.length
-  const offset = total // começa no meio (segunda cópia)
+  const offset = total
 
   const [index, setIndex] = useState(offset)
   const [animated, setAnimated] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
   const timerRef = useRef(null)
   const startXRef = useRef(null)
 
-  const VISIBLE = 3 // cards visíveis ao mesmo tempo
-  const CARD_W = 100 / VISIBLE // % por card
+  // Detecta mobile
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  // No mobile: 1 card visível (100%). No desktop: 3 (33.33%)
+  const CARD_W = isMobile ? 100 : 100 / 3
 
   const resetTimer = useCallback(() => {
     clearInterval(timerRef.current)
@@ -31,20 +40,14 @@ export default function Carousel() {
     return () => clearInterval(timerRef.current)
   }, [resetTimer])
 
-  // Quando chega no fim da 3ª cópia, salta silenciosamente para a 2ª
+  // Loop infinito silencioso
   useEffect(() => {
     if (index >= offset + total) {
-      const t = setTimeout(() => {
-        setAnimated(false)
-        setIndex(offset)
-      }, 520)
+      const t = setTimeout(() => { setAnimated(false); setIndex(offset) }, 520)
       return () => clearTimeout(t)
     }
     if (index < offset) {
-      const t = setTimeout(() => {
-        setAnimated(false)
-        setIndex(offset + total - 1)
-      }, 520)
+      const t = setTimeout(() => { setAnimated(false); setIndex(offset + total - 1) }, 520)
       return () => clearTimeout(t)
     }
   }, [index, offset, total])
@@ -68,7 +71,6 @@ export default function Carousel() {
     <section className="carousel-section" id="preview">
       <div className="container">
 
-        {/* Cabeçalho — textos brancos */}
         <div className="carousel-section__header">
           <span className="badge carousel-badge">✦ Só uma amostra…</span>
           <h2 className="carousel-title">
@@ -101,7 +103,11 @@ export default function Carousel() {
               }}
             >
               {items.map((item, i) => (
-                <div key={i} className="carousel__card">
+                <div
+                  key={i}
+                  className="carousel__card"
+                  style={{ flex: `0 0 ${CARD_W}%` }}
+                >
                   <img
                     src={item.image}
                     alt={item.label}

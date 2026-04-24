@@ -218,39 +218,45 @@
   background: rgba(255,255,255,0.5);
 }
 
-/* ─── RESPONSIVO ─── */
+/* ─── RESPONSIVO MOBILE ─── */
 @media (max-width: 768px) {
+  /* No mobile o card é 100% — controlado via JS (CARD_W=100) */
   .carousel__card {
-    flex: 0 0 72%;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 3 / 4;
   }
 
-  /* Setas visíveis no mobile — menores e dentro do viewport */
+  /* Viewport centralizado e sem overflow */
+  .carousel__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* Setas dentro do card, sobre a imagem */
   .carousel__arrow {
     display: flex;
-    width: 36px; height: 36px;
-    background: rgba(0,0,0,0.45);
-    border-color: rgba(255,255,255,0.25);
-    backdrop-filter: blur(4px);
+    width: 40px; height: 40px;
+    background: rgba(0, 0, 0, 0.50);
+    border-color: rgba(255,255,255,0.30);
+    backdrop-filter: blur(6px);
+    z-index: 10;
   }
 
   .carousel__arrow--prev {
-    left: 4px;
+    left: 8px;
   }
 
   .carousel__arrow--next {
-    right: 4px;
+    right: 8px;
   }
 
-  /* Centraliza o card visível */
-  .carousel__viewport {
-    display: flex;
-    justify-content: center;
+  /* Padding lateral da seção */
+  .carousel-section {
+    padding-left: 0;
+    padding-right: 0;
   }
-}
 
-@media (max-width: 480px) {
-  .carousel__card {
-    flex: 0 0 82%;
+  .carousel-section .container {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
