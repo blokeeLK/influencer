@@ -222,14 +222,16 @@ a {
     --section-pad: 56px 20px;
   }
 
-  .btn-primary {
-    width: 100%;
-    max-width: 400px;
-    padding: 18px 32px;
-  }
-
+  /* Todos os botões — mesmo tamanho no mobile */
+  .btn-primary,
   .btn-large {
-    font-size: 1rem;
-    padding: 20px 32px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95rem;
+    padding: 17px 20px;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
   }
 }
