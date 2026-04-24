@@ -6,7 +6,7 @@
 export const SITE_CONFIG = {
   // ─── NOME / MARCA ─────────────────────────────────────────
   // ✏️ Troque pelo nome da sua influencer ou marca
-  name: 'Sofia Rivera',
+  name: 'Manu Roots',
   tagline: 'Conteúdo Exclusivo',
 
   // ─── VÍDEO PRINCIPAL ──────────────────────────────────────
@@ -146,7 +146,7 @@ export const SITE_CONFIG = {
   // ─── RODAPÉ ───────────────────────────────────────────────
   footer: {
     // ✏️ Texto de direitos reservados
-    copyright: '© 2024 Sofia Rivera. Todos os direitos reservados.',
+    copyright: '© 2024 Manu Roots. Todos os direitos reservados.',
     // ✏️ Links do rodapé — troque os hrefs pelos seus links reais
     links: [
       { label: 'Suporte', href: 'mailto:suporte@seusite.com' },
