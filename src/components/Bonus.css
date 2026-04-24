@@ -144,4 +144,16 @@
   .bonus__item-text {
     font-size: 0.85rem;
   }
+
+  /* Botão dentro do card — não sai da borda */
+  .bonus__cta .btn-primary {
+    font-size: 0.82rem;
+    padding: 14px 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+  }
 }
