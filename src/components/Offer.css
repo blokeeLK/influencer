@@ -82,11 +82,11 @@
 
 /* ── Cabeçalho do card ── */
 .offer__card-header {
-  padding: 32px 40px 28px;
+  padding: 20px 32px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .offer__badge {
@@ -97,14 +97,14 @@
 
 .offer__title {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   color: var(--white);
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .offer__subtitle {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
 }
 
 /* ── Bloco de preço ── */
@@ -180,19 +180,23 @@
   margin-top: 8px;
 }
 
-/* ── Bônus — VERDE + negrito ── */
+/* ── Bônus dentro do balão ── */
 .offer__bonus-block {
-  padding: 28px 40px;
+  padding: 24px 32px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.offer__bonus-title {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #86EFAC;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+/* Intro em itálico */
+.offer__bonus-intro {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  line-height: 1.6;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .offer__bonus-list {
@@ -208,25 +212,32 @@
   gap: 10px;
 }
 
-/* ✏️ Check verde */
-.offer__check {
-  width: 20px; height: 20px;
-  min-width: 20px;
-  background: rgba(74, 222, 128, 0.15);
-  border: 1.5px solid #4ADE80;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.62rem;
-  color: #4ADE80;
-  font-weight: 800;
-  margin-top: 2px;
+.offer__bonus-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1.5;
 }
 
-/* ✏️ Texto do bônus — VERDE + negrito */
+/* Texto do bônus — VERDE + negrito */
 .offer__bonus-text {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #86EFAC;
+  line-height: 1.5;
+}
+
+/* Aviso de escassez */
+.offer__bonus-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: #FCD34D;
+  font-weight: 500;
   line-height: 1.5;
 }
 

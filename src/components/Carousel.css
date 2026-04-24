@@ -221,17 +221,36 @@
 /* ─── RESPONSIVO ─── */
 @media (max-width: 768px) {
   .carousel__card {
-    flex: 0 0 70%;
+    flex: 0 0 72%;
     aspect-ratio: 2 / 3;
   }
 
+  /* Setas visíveis no mobile — menores e dentro do viewport */
   .carousel__arrow {
-    display: none;
+    display: flex;
+    width: 36px; height: 36px;
+    background: rgba(0,0,0,0.45);
+    border-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(4px);
+  }
+
+  .carousel__arrow--prev {
+    left: 4px;
+  }
+
+  .carousel__arrow--next {
+    right: 4px;
+  }
+
+  /* Centraliza o card visível */
+  .carousel__viewport {
+    display: flex;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .carousel__card {
-    flex: 0 0 85%;
+    flex: 0 0 82%;
   }
 }

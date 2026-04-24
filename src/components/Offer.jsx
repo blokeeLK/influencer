@@ -24,7 +24,7 @@ function useCountdown(hours = 23, minutes = 59, seconds = 59) {
 }
 
 export default function Offer() {
-  const { offer, bonuses } = SITE_CONFIG
+  const { offer, bonuses, bonusIntro, bonusWarning } = SITE_CONFIG
   const countdown = useCountdown()
 
   return (
@@ -77,21 +77,21 @@ export default function Offer() {
 
             <div className="offer__divider" />
 
-            {/* Bônus — verde negrito */}
+            {/* Bônus no estilo card — igual à seção Bonus */}
             <div className="offer__bonus-block">
-              <p className="offer__bonus-title">✦ Todos os bônus incluídos:</p>
+              <p className="offer__bonus-intro">{bonusIntro}</p>
               <ul className="offer__bonus-list">
                 {bonuses.map(b => (
                   <li key={b.id} className="offer__bonus-item">
-                    <span className="offer__check">✓</span>
-                    <span className="offer__bonus-text">{b.icon} {b.title}</span>
+                    <span className="offer__bonus-icon">{b.icon}</span>
+                    <span className="offer__bonus-text">{b.title}</span>
                   </li>
                 ))}
-                <li className="offer__bonus-item">
-                  <span className="offer__check">✓</span>
-                  <span className="offer__bonus-text">🔓 Acesso imediato após confirmação</span>
-                </li>
               </ul>
+              <div className="offer__bonus-warning">
+                <span>⚠️</span>
+                <p>{bonusWarning}</p>
+              </div>
             </div>
 
             <div className="offer__divider" />
