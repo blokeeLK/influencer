@@ -34,33 +34,23 @@ export const SITE_CONFIG = {
   carousel: [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80',
+      image: '/foto1.png',
       label: 'Esse foi só um momento…',
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=600&q=80',
+      image: '/foto2.png',
       label: 'Aqui começa a ficar interessante',
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
+      image: '/foto3.png',
       label: 'Esse eu quase não posto…',
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80',
+      image: '/foto4.png',
       label: 'Nunca mostrei isso antes',
-    },
-    {
-      id: 5,
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
-      label: 'Só pra quem entra…',
-    },
-    {
-      id: 6,
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80',
-      label: 'Isso daqui eu guardo só pra mim',
     },
   ],
 
