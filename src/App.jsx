@@ -4,6 +4,7 @@ import WhatYouGet from './components/WhatYouGet'
 import Bonus from './components/Bonus'
 import Offer from './components/Offer'
 import Footer from './components/Footer'
+import PixelEvents from './components/PixelEvents'
 
 // ============================================================
 // APP PRINCIPAL — Landing Page da Influencer
@@ -13,6 +14,9 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <main>
+      {/* Rastreamento: dispara PageView ao carregar */}
+      <PixelEvents />
+
       {/* 1. Hero com vídeo e copy principal */}
       <Hero />
 

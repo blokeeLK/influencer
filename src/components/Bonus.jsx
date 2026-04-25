@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '../config'
+import { trackEvent, withUtms } from '../useTracking'
 import './Bonus.css'
 
 export default function Bonus() {
@@ -52,7 +53,11 @@ export default function Bonus() {
 
           {/* CTA dentro do card */}
           <div className="bonus__cta">
-            <a href={hero.ctaLink} className="btn-primary btn-large">
+            <a
+              href={withUtms(hero.ctaLink)}
+              className="btn-primary btn-large"
+              onClick={() => trackEvent('cta_bonus_click', { location: 'bonus' })}
+            >
               {hero.ctaText}
             </a>
           </div>

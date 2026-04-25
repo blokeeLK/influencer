@@ -139,7 +139,7 @@ export const SITE_CONFIG = {
     period: '/mês',
     urgencyText: '⚡ Esse valor some hoje',
     ctaText: '🔥 LIBERAR MEU ACESSO AGORA',
-    ctaLink: 'https://SEU_LINK_DE_PAGAMENTO_AQUI.com',
+    ctaLink: 'https://pay.cakto.com.br/kgoxovy_862945',
     guarantee: '✅ Acesso imediato · Cancele quando quiser · Suporte 24h',
   },
 

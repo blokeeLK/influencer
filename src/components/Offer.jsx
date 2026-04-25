@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { SITE_CONFIG } from '../config'
+import { trackEvent, withUtms } from '../useTracking'
 import './Offer.css'
 
 function useCountdown(hours = 23, minutes = 59, seconds = 59) {
@@ -99,10 +100,14 @@ export default function Offer() {
             {/* CTA */}
             <div className="offer__cta-wrap">
               <a
-                href={offer.ctaLink}
+                href={withUtms(offer.ctaLink)}
                 className="btn-primary btn-large offer__cta-btn"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent('checkout_click', { location: 'offer', price: offer.promoPrice })
+                  trackEvent('InitiateCheckout', { value: offer.promoPrice, currency: 'BRL' })
+                }}
               >
                 {offer.ctaText}
               </a>

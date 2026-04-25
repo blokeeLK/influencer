@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '../config'
+import { trackEvent, withUtms } from '../useTracking'
 import './Hero.css'
 
 export default function Hero() {
@@ -60,7 +61,11 @@ export default function Hero() {
           </p>
 
           <div className="hero__cta-wrap animate-fade-up-delay-4">
-            <a href={hero.ctaLink} className="btn-primary btn-large">
+            <a
+              href={withUtms(hero.ctaLink)}
+              className="btn-primary btn-large"
+              onClick={() => trackEvent('cta_hero_click', { location: 'hero' })}
+            >
               {hero.ctaText}
             </a>
             <p className="hero__cta-sub">{hero.ctaSubtext}</p>

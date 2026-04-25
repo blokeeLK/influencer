@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '../config'
+import { trackEvent, withUtms } from '../useTracking'
 import './WhatYouGet.css'
 
 export default function WhatYouGet() {
@@ -44,7 +45,11 @@ export default function WhatYouGet() {
 
         {/* CTA intermediário */}
         <div className="wyg__cta">
-          <a href={hero.ctaLink} className="btn-primary">
+          <a
+            href={withUtms(hero.ctaLink)}
+            className="btn-primary"
+            onClick={() => trackEvent('cta_wyg_click', { location: 'what_you_get' })}
+          >
             {hero.ctaText}
           </a>
         </div>
