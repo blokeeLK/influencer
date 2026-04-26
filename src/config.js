@@ -35,22 +35,22 @@ export const SITE_CONFIG = {
   carousel: [
     {
       id: 1,
-      image: '/foto1.png',
+      image: '/foto1.jpg',
       label: 'Esse foi só um momento…',
     },
     {
       id: 2,
-      image: '/foto2.png',
+      image: '/foto2.jpg',
       label: 'Aqui começa a ficar interessante',
     },
     {
       id: 3,
-      image: '/foto3.png',
+      image: '/foto3.jpg',
       label: 'Esse eu quase não posto…',
     },
     {
       id: 4,
-      image: '/foto4.png',
+      image: '/foto4.jpg',
       label: 'Nunca mostrei isso antes',
     },
   ],
