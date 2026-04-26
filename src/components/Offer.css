@@ -38,6 +38,34 @@
   text-align: center;
 }
 
+/* Barra de prova social ao vivo */
+.offer__live-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.offer__live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  flex-shrink: 0;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+
 /* Contador */
 .offer__urgency {
   display: flex;
@@ -267,9 +295,16 @@
     0 4px 20px rgba(37, 99, 235, 0.4);
 }
 
-.offer__guarantee {
+.offer__urgency-note {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.45);
+  color: #FCD34D;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.offer__guarantee {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
 }
 
 /* ── Selos ── */

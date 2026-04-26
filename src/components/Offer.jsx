@@ -38,6 +38,12 @@ export default function Offer() {
       <div className="container">
         <div className="offer__inner">
 
+          {/* Prova social em tempo real */}
+          <div className="offer__live-bar">
+            <span className="offer__live-dot" />
+            <span>🔥 Pessoas comprando agora · ⭐ 4.9/5 · 🔒 Pagamento seguro</span>
+          </div>
+
           {/* Contador de urgência */}
           <div className="offer__urgency">
             <span className="offer__clock">⏰</span>
@@ -115,6 +121,7 @@ export default function Offer() {
               >
                 {offer.ctaText}
               </a>
+              <p className="offer__urgency-note">⏰ Oferta pode encerrar a qualquer momento</p>
               <p className="offer__guarantee">{offer.guarantee}</p>
             </div>
 

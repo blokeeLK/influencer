@@ -21,10 +21,11 @@ export const SITE_CONFIG = {
 
   // ─── HERO / TOPO ─────────────────────────────────────────
   hero: {
-    headline: 'Isso aqui não é\npra todo mundo…',
-    subheadline: 'Tem coisas aqui que eu nunca postei em lugar nenhum. Só quem entra consegue ver tudo — sem cortes.',
-    reinforcement: 'Milhares já viram… alguns até se arrependeram de não ter entrado antes.',
-    ctaText: '🔥 ENTRAR E VER SEM RESTRIÇÕES',
+    // ✏️ Linha 2 fica em itálico azul automaticamente
+    headline: 'Tem coisas minhas aqui\nque nunca deixei\nem lugar nenhum.',
+    subheadline: 'Quem entra vê tudo — sem cortes, sem filtro, sem limite.',
+    reinforcement: '🔥 Mais de 12 mil já entraram. Alguns até se arrependeram de ter demorado.',
+    ctaText: '👁️ QUERO VER TUDO AGORA',
     ctaLink: '#oferta',
     ctaSubtext: '🔒 Acesso imediato · Pagamento 100% seguro',
   },
@@ -55,49 +56,18 @@ export const SITE_CONFIG = {
   ],
 
   // ─── O QUE VOCÊ VAI RECEBER ───────────────────────────────
-  // ✏️ Edite cada entrega com título, descrição e ícone (emoji ou SVG)
+  // ✏️ Edite cada entrega em config.js → deliverables[]
   deliverables: [
-    {
-      id: 1,
-      icon: '🔓',
-      title: 'Acesso completo sem censura',
-      description: 'Tudo que eu gravo vai direto pra você. Sem cortes, sem filtros, sem limitações.',
-    },
-    {
-      id: 2,
-      icon: '🙈',
-      title: 'Conteúdos que não deixo em lugar nenhum',
-      description: 'Nem no Instagram, nem em nenhuma outra plataforma. Só aqui, só pra quem entra.',
-    },
-    {
-      id: 3,
-      icon: '🎬',
-      title: 'Coisas que eu gravei só pra quem entra',
-      description: 'Momentos que eu escolhi guardar pra esse espaço. Você vai entender quando ver.',
-    },
-    {
-      id: 4,
-      icon: '🔥',
-      title: 'Novos conteúdos toda semana',
-      description: 'Não é arquivo parado. Sempre tem algo novo chegando — e você recebe tudo em primeira mão.',
-    },
-    {
-      id: 5,
-      icon: '💬',
-      title: 'Acesso direto a mim',
-      description: 'Sem intermediário. Sem filtro. Uma conexão real — do jeito que eu gosto.',
-    },
-    {
-      id: 6,
-      icon: '🏆',
-      title: 'Parte de algo que poucos têm',
-      description: 'Esse espaço é seleto de propósito. Não é pra qualquer um. Mas você chegou até aqui.',
-    },
+    { id: 1, icon: '🔓', title: 'Acesso completo sem censura', description: 'Sem cortes. Sem filtros. Tudo que eu gravo vai direto pra você.' },
+    { id: 2, icon: '🙈', title: 'Só existe aqui', description: 'Nem no Instagram, nem em outro lugar. Exclusivo pra quem entra.' },
+    { id: 3, icon: '🎬', title: 'Gravei só pra quem é de dentro', description: 'Momentos que guardei pra esse espaço. Você vai entender quando ver.' },
+    { id: 4, icon: '🔥', title: 'Novidades toda semana', description: 'Sempre algo novo chegando. Você recebe em primeira mão.' },
+    { id: 5, icon: '💬', title: 'Acesso direto a mim', description: 'Sem intermediário. Uma conexão real — do jeito que eu gosto.' },
+    { id: 6, icon: '🏆', title: 'Seleto de propósito', description: 'Esse espaço não é pra qualquer um. Mas você chegou até aqui.' },
   ],
 
   // ─── BÔNUS ───────────────────────────────────────────────
-  // ✏️ Texto de abertura da seção de bônus
-  bonusIntro: 'Decidi liberar algumas coisas que normalmente eu guardo só pra mim…',
+  bonusIntro: 'Resolvi liberar coisas que eu normalmente guardaria só pra mim…',
 
   bonuses: [
     {
@@ -132,12 +102,12 @@ export const SITE_CONFIG = {
   // ─── OFERTA / PREÇOS ──────────────────────────────────────
   offer: {
     // ✏️ Título da seção de oferta
-    title: 'Se sair dessa página, pode não encontrar esse valor de novo.',
-    subtitle: 'Esse valor some hoje. Não é papo de marketing — é real.',
+    title: 'Se sair dessa página, talvez não encontre esse valor de novo.',
+    subtitle: 'Esse preço não vai durar. Não é papo de marketing — é real.',
     originalPrice: 'R$ 97,00',
     promoPrice: 'R$ 19,90',
     period: '/mês',
-    urgencyText: '⚡ Esse valor some hoje',
+    urgencyText: '⚡ Oferta pode encerrar a qualquer momento',
     ctaText: '🔥 LIBERAR MEU ACESSO AGORA',
     ctaLink: 'https://pay.cakto.com.br/kgoxovy_862945',
     guarantee: '✅ Acesso imediato · Cancele quando quiser · Suporte 24h',

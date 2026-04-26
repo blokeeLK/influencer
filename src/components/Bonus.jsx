@@ -17,7 +17,7 @@ export default function Bonus() {
         <div className="bonus__header">
           <span className="badge">✦ Isso normalmente eu não mostro…</span>
           <h2 className="section-title bonus__title" style={{ marginTop: 16 }}>
-            O que vem junto quando você entrar hoje
+            Tudo que você leva junto — sem pagar nada a mais
           </h2>
           <div className="section-divider" />
         </div>
@@ -58,8 +58,9 @@ export default function Bonus() {
               className="btn-primary btn-large"
               onClick={() => trackEvent('cta_bonus_click', { location: 'bonus' })}
             >
-              {hero.ctaText}
+              🔥 LIBERAR MEU ACESSO AGORA
             </a>
+            <p className="bonus__cta-sub">⏰ Oferta pode encerrar a qualquer momento</p>
           </div>
 
         </div>

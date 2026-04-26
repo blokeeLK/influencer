@@ -108,20 +108,29 @@ export default function Hero() {
               {hero.ctaText}
             </a>
             <p className="hero__cta-sub">{hero.ctaSubtext}</p>
+            {/* Micro prova social em tempo real */}
+            <div className="hero__social-pill">
+              <span className="hero__social-dot" />
+              <span>🔥 Pessoas entrando agora · ⭐ 4.9/5 · 🔒 100% seguro</span>
+            </div>
           </div>
 
           <div className="hero__trust animate-fade-up-delay-4">
             <div className="hero__trust-item">
-              <span className="hero__trust-icon">👁️</span>
-              <span>Acesso instantâneo</span>
+              <span className="hero__trust-icon">✔</span>
+              <span>Conteúdo exclusivo</span>
             </div>
             <div className="hero__trust-item">
-              <span className="hero__trust-icon">🔒</span>
-              <span>100% seguro</span>
+              <span className="hero__trust-icon">✔</span>
+              <span>Acesso imediato</span>
             </div>
             <div className="hero__trust-item">
-              <span className="hero__trust-icon">⭐</span>
-              <span>+12k membros</span>
+              <span className="hero__trust-icon">✔</span>
+              <span>Sem enrolação</span>
+            </div>
+            <div className="hero__trust-item">
+              <span className="hero__trust-icon">✔</span>
+              <span>Só aqui</span>
             </div>
           </div>
         </div>

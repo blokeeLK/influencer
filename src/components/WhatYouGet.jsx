@@ -11,12 +11,12 @@ export default function WhatYouGet() {
 
         {/* Cabeçalho */}
         <div className="wyg__header">
-          <span className="badge">✦ Só pra quem entra</span>
+          <span className="badge">✦ Acesso exclusivo</span>
           <h2 className="section-title" style={{ marginTop: 16 }}>
-            O que você vai desbloquear quando entrar
+            O que você desbloqueia agora
           </h2>
           <p className="section-subtitle" style={{ marginTop: 12 }}>
-            Isso não tá disponível em lugar nenhum. Só aqui. Só pra quem decide entrar.
+            Não existe em nenhuma outra plataforma. Só aqui. Só pra quem decide entrar hoje.
           </p>
           <div className="section-divider" />
         </div>
@@ -47,11 +47,12 @@ export default function WhatYouGet() {
         <div className="wyg__cta">
           <a
             href={withUtms(hero.ctaLink)}
-            className="btn-primary"
+            className="btn-primary btn-large"
             onClick={() => trackEvent('cta_wyg_click', { location: 'what_you_get' })}
           >
-            {hero.ctaText}
+            👁️ QUERO VER TUDO AGORA
           </a>
+          <p className="wyg__cta-sub">⏰ Oferta por tempo limitado · Acesso imediato</p>
         </div>
 
       </div>
