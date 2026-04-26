@@ -81,9 +81,13 @@ export default function Offer() {
             {/* Bônus no estilo card — igual à seção Bonus */}
             <div className="offer__bonus-block">
               <p className="offer__bonus-intro">{bonusIntro}</p>
+              {/* IDs 1 e 5 aparecem em todos os dispositivos; os demais somem no mobile */}
               <ul className="offer__bonus-list">
                 {bonuses.map(b => (
-                  <li key={b.id} className="offer__bonus-item">
+                  <li
+                    key={b.id}
+                    className={`offer__bonus-item${b.id !== 1 && b.id !== 5 ? ' offer__bonus-item--desktop-only' : ''}`}
+                  >
                     <span className="offer__bonus-icon">{b.icon}</span>
                     <span className="offer__bonus-text">{b.title}</span>
                   </li>

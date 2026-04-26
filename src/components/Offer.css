@@ -362,6 +362,11 @@
     padding: 8px 16px;
   }
 
+  /* Esconde bônus extras no mobile — mantém só 🔥 e 🎯 */
+  .offer__bonus-item--desktop-only {
+    display: none;
+  }
+
   /* Bônus intro e textos menores */
   .offer__bonus-intro {
     font-size: 0.85rem;
