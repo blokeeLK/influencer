@@ -32,13 +32,11 @@ export const SITE_CONFIG = {
 
   // ─── CARROSSEL DE PRÉVIAS ─────────────────────────────────
   // ✏️ Troque as URLs pelas suas imagens reais (use Unsplash, seu servidor, etc.)
-  // ✏️ contain: true → mostra a foto inteira sem cortar (bom para horizontais)
-  // contain: false (padrão) → preenche o card inteiro (bom para verticais/retratos)
   carousel: [
-    { id: 1, image: '/foto1.jpg', label: 'Esse foi só um momento…',       contain: true  },
-    { id: 2, image: '/foto2.jpg', label: 'Aqui começa a ficar interessante', contain: true  },
-    { id: 3, image: '/foto3.jpg', label: 'Esse eu quase não posto…',       contain: false },
-    { id: 4, image: '/foto4.jpg', label: 'Nunca mostrei isso antes',       contain: false },
+    { id: 1, image: '/foto1.jpg', label: 'Esse foi só um momento…',         position: 'center top'    },
+    { id: 2, image: '/foto2.jpg', label: 'Aqui começa a ficar interessante', position: 'center center' },
+    { id: 3, image: '/foto3.jpg', label: 'Esse eu quase não posto…',         position: 'center top'    },
+    { id: 4, image: '/foto4.jpg', label: 'Nunca mostrei isso antes',         position: 'center top'    },
   ],
 
   // ─── O QUE VOCÊ VAI RECEBER ───────────────────────────────

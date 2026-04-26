@@ -111,7 +111,8 @@ export default function Carousel() {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className={`carousel__img${item.contain ? ' carousel__img--contain' : ''}`}
+                    className="carousel__img"
+                    style={{ objectPosition: item.position || 'center top' }}
                     loading="lazy"
                   />
                   <div className="carousel__overlay">
