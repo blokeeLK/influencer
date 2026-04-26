@@ -111,7 +111,7 @@ export default function Carousel() {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="carousel__img"
+                    className={`carousel__img${item.contain ? ' carousel__img--contain' : ''}`}
                     loading="lazy"
                   />
                   <div className="carousel__overlay">

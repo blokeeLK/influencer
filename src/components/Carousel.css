@@ -99,6 +99,13 @@
   display: block;
 }
 
+/* Foto aparece inteira sem corte — fundo escuro preenche o espaço */
+.carousel__img--contain {
+  object-fit: contain;
+  object-position: center center;
+  background: #0a0a0a;
+}
+
 .carousel__card:hover .carousel__img {
   transform: scale(1.05);
 }
