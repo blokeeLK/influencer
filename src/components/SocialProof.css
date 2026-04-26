@@ -101,8 +101,31 @@
   .social-proof {
     bottom: 16px;
     left: 12px;
-    right: 12px;
-    max-width: none;
+    right: auto;
+    max-width: 220px;
     min-width: 0;
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .social-proof__avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .social-proof__name {
+    font-size: 0.78rem;
+  }
+
+  .social-proof__msg {
+    font-size: 0.7rem;
+  }
+
+  .social-proof__badge {
+    width: 18px;
+    height: 18px;
+    font-size: 0.62rem;
   }
 }
