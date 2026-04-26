@@ -1,11 +1,39 @@
+import { useState, useRef, useEffect } from 'react'
 import { SITE_CONFIG } from '../config'
 import { trackEvent, withUtms } from '../useTracking'
 import './Hero.css'
 
 export default function Hero() {
   const { hero } = SITE_CONFIG
-
   const headlineLines = hero.headline.split('\n')
+  const videoRef = useRef(null)
+
+  // Controla visibilidade da mensagem "Clique para ativar o som"
+  const [showSoundHint, setShowSoundHint] = useState(true)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Tenta autoplay mutado (compatibilidade máxima)
+    video.muted = true
+    video.play().catch(() => {})
+
+    // Some a mensagem após 4 segundos automaticamente
+    const timer = setTimeout(() => {
+      setShowSoundHint(false)
+    }, 4000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Ao clicar no vídeo: ativa o som e esconde a mensagem
+  const handleVideoClick = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = false
+    setShowSoundHint(false)
+  }
 
   return (
     <section className="hero" id="inicio">
@@ -16,19 +44,30 @@ export default function Hero() {
 
       <div className="container hero__container">
 
-        {/* ── COLUNA ESQUERDA: Vídeo local ── */}
+        {/* ── COLUNA ESQUERDA: Vídeo ── */}
         <div className="hero__video-col animate-fade-up">
-          <div className="hero__video-wrapper">
+          <div className="hero__video-wrapper" onClick={handleVideoClick}>
 
-            {/* ✏️ Para trocar o vídeo: substitua o arquivo public/vls.mp4 */}
+            {/* ✏️ Troque o vídeo substituindo public/vls.mp4 */}
             <video
+              ref={videoRef}
               className="hero__video"
               src="/vls.mp4"
               poster="/video-thumb.jpg"
               controls
               playsInline
               preload="metadata"
+              /* Sem loop — roda 1x só */
             />
+
+            {/* Mensagem "Clique para ativar o som" */}
+            <div
+              className={`hero__sound-hint ${showSoundHint ? 'hero__sound-hint--visible' : 'hero__sound-hint--hidden'}`}
+              aria-hidden={!showSoundHint}
+            >
+              <span className="hero__sound-hint-icon">🔊</span>
+              <span>Clique para ativar o som</span>
+            </div>
 
             {/* Badge de exclusividade */}
             <div className="hero__video-badge" aria-hidden="true">

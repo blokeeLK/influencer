@@ -5,6 +5,7 @@ import Bonus from './components/Bonus'
 import Offer from './components/Offer'
 import Footer from './components/Footer'
 import PixelEvents from './components/PixelEvents'
+import SocialProof from './components/SocialProof'
 
 // ============================================================
 // APP PRINCIPAL — Landing Page da Influencer
@@ -34,6 +35,9 @@ export default function App() {
 
       {/* 6. Rodapé */}
       <Footer />
+
+      {/* Popup flutuante de prova social */}
+      <SocialProof />
     </main>
   )
 }
