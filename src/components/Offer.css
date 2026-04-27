@@ -140,11 +140,12 @@
 
 /* Preço */
 .offer__price-block {
-  padding: 28px 32px;
+  padding: 32px 32px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  background: radial-gradient(ellipse at center, rgba(74,222,128,0.05) 0%, transparent 70%);
 }
 
 .offer__price-from {
@@ -179,21 +180,24 @@
 
 .offer__price-promo {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 9vw, 5rem);
-  font-weight: 700;
-  color: #fff;
+  font-size: clamp(3.6rem, 10vw, 5.5rem);
+  font-weight: 900;
+  color: #4ade80;
   line-height: 1;
   display: flex;
   align-items: baseline;
   gap: 6px;
-  text-shadow: 0 0 40px rgba(255,255,255,0.15);
+  text-shadow:
+    0 0 30px rgba(74, 222, 128, 0.6),
+    0 0 60px rgba(74, 222, 128, 0.25);
+  letter-spacing: -0.02em;
 }
 
 .offer__price-period {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.55);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(74, 222, 128, 0.7);
 }
 
 .offer__urgency-tag {

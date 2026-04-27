@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Hero from './components/Hero'
 import Carousel from './components/Carousel'
 import WhatYouGet from './components/WhatYouGet'
-import Bonus from './components/Bonus'
 import Offer from './components/Offer'
 import Footer from './components/Footer'
 import PixelEvents from './components/PixelEvents'
@@ -33,7 +32,6 @@ export default function App() {
       <Hero />
       <Carousel />
       <WhatYouGet />
-      <Bonus />
       <Offer />
       <Footer />
       <SocialProof />
