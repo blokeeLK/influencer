@@ -1,60 +1,61 @@
-/* ─── OFERTA FINAL ─── */
+/* ─── OFERTA FINAL — Dark Premium ─── */
 .offer {
   position: relative;
   padding: var(--section-pad);
-  background: linear-gradient(160deg, #0F172A 0%, #1E3A5F 60%, #1D4ED8 100%);
+  background: var(--black);
+  border-top: 1px solid rgba(255,26,26,0.12);
   overflow: hidden;
-  color: var(--white);
 }
 
+/* Glow de fundo */
 .offer__bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 
 .offer__bg-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.25;
-}
-.offer__bg-glow--1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, #3B82F6, transparent);
-  top: -150px; right: -100px;
-}
-.offer__bg-glow--2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, #60A5FA, transparent);
-  bottom: -100px; left: -80px;
+  filter: blur(80px);
 }
 
-/* ── Wrapper central ── */
+.offer__bg-glow--1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,26,26,0.12), transparent);
+  top: -100px; right: -100px;
+}
+
+.offer__bg-glow--2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,26,26,0.07), transparent);
+  bottom: -80px; left: -80px;
+}
+
+/* Wrapper central */
 .offer__inner {
   position: relative; z-index: 1;
-  max-width: 620px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   text-align: center;
 }
 
-/* Barra de prova social ao vivo */
+/* Barra live */
 .offer__live-bar {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,26,26,0.07);
+  border: 1px solid rgba(255,26,26,0.2);
   border-radius: 100px;
-  padding: 8px 20px;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.85);
+  padding: 8px 18px;
+  font-size: 0.78rem;
+  color: var(--gray);
   font-weight: 500;
 }
 
 .offer__live-dot {
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   background: #22C55E;
   flex-shrink: 0;
@@ -62,8 +63,8 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+  0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50%      { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
 }
 
 /* Contador */
@@ -71,80 +72,79 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
+  background: rgba(255,26,26,0.07);
+  border: 1px solid rgba(255,26,26,0.2);
   border-radius: 100px;
   padding: 10px 22px;
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.9);
-}
-.offer__clock { font-size: 1.1rem; }
-.offer__countdown {
-  color: #93C5FD;
-  font-variant-numeric: tabular-nums;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.85);
 }
 
-/* ── BALÃO ÚNICO ── */
+.offer__clock { font-size: 1rem; }
+
+.offer__countdown {
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+/* ── CARD ── */
 .offer__card {
   width: 100%;
-  background: rgba(10, 20, 50, 0.82);
-  border: 2px solid #3B82F6;
-  border-radius: 18px;
-  backdrop-filter: blur(16px);
-  overflow: hidden;
+  background: var(--card-bg);
+  border: 2px solid rgba(255,26,26,0.55);
+  border-radius: 20px;
+  box-shadow:
+    0 0 28px rgba(255,26,26,0.2),
+    0 0 60px rgba(255,26,26,0.08),
+    0 20px 60px rgba(0,0,0,0.7);
   display: flex;
   flex-direction: column;
-  gap: 0;
-  box-shadow:
-    0 0 18px rgba(59, 130, 246, 0.55),
-    0 0 40px rgba(59, 130, 246, 0.22),
-    0 20px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
 
-/* Linha divisória interna */
 .offer__divider {
   width: 100%;
   height: 1px;
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,26,26,0.12);
 }
 
-/* ── Cabeçalho do card ── */
+/* Header */
 .offer__card-header {
-  padding: 20px 32px 16px;
+  padding: 24px 28px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .offer__badge {
-  background: rgba(37,99,235,0.3);
-  border-color: rgba(59,130,246,0.4);
-  color: #93C5FD;
+  background: var(--red-soft);
+  border-color: var(--red-border);
+  color: var(--red);
 }
 
 .offer__title {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
   color: var(--white);
   line-height: 1.25;
+  font-weight: 700;
 }
 
 .offer__subtitle {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--gray);
 }
 
-/* ── Bloco de preço ── */
+/* Preço */
 .offer__price-block {
-  padding: 32px 40px;
+  padding: 28px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .offer__price-from {
@@ -154,87 +154,85 @@
 }
 
 .offer__price-label {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.45);
+  font-size: 0.82rem;
+  color: var(--gray-dim);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* ✏️ Preço original — VERMELHO + riscado + negrito */
 .offer__price-original {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #F87171;
+  color: #ef4444;
   text-decoration: line-through;
-  text-decoration-color: #F87171;
+  text-decoration-color: #ef4444;
   text-decoration-thickness: 2px;
 }
 
 .offer__price-by-label {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.78rem;
+  color: var(--gray-dim);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
-/* ✏️ Preço promo — VERDE + grande + negrito */
 .offer__price-promo {
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 9vw, 5rem);
+  font-size: clamp(3.2rem, 9vw, 5rem);
   font-weight: 700;
-  color: #4ADE80;
+  color: #fff;
   line-height: 1;
   display: flex;
   align-items: baseline;
   gap: 6px;
-  text-shadow: 0 0 40px rgba(74, 222, 128, 0.35);
+  text-shadow: 0 0 40px rgba(255,255,255,0.15);
 }
 
 .offer__price-period {
   font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 600;
-  color: rgba(74, 222, 128, 0.75);
+  color: rgba(255,255,255,0.55);
 }
 
 .offer__urgency-tag {
   display: inline-block;
-  background: linear-gradient(135deg, #F59E0B, #D97706);
-  color: white;
-  font-size: 0.75rem;
+  background: rgba(255,26,26,0.15);
+  border: 1px solid rgba(255,26,26,0.35);
+  color: var(--red);
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 7px 18px;
+  padding: 6px 16px;
   border-radius: 100px;
   margin-top: 8px;
 }
 
-/* ── Bônus dentro do balão ── */
+/* Bônus */
 .offer__bonus-block {
-  padding: 24px 32px;
+  padding: 20px 28px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* Intro em itálico */
 .offer__bonus-intro {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
+  font-size: 0.88rem;
+  color: var(--gray);
   font-style: italic;
   line-height: 1.6;
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .offer__bonus-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .offer__bonus-item {
@@ -243,75 +241,67 @@
   gap: 10px;
 }
 
-.offer__bonus-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  line-height: 1.5;
-}
+.offer__bonus-icon { font-size: 1rem; flex-shrink: 0; line-height: 1.5; }
 
-/* Texto do bônus — VERDE + negrito */
 .offer__bonus-text {
-  font-size: 0.92rem;
-  font-weight: 800;
-  color: #86EFAC;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
   line-height: 1.5;
-  letter-spacing: 0.01em;
 }
 
-/* Aviso de escassez */
+/* Ocultar itens no mobile */
+.offer__bonus-item--desktop-only { display: flex; }
+
+/* Aviso */
 .offer__bonus-warning {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  background: rgba(245,158,11,0.12);
-  border: 1px solid rgba(245,158,11,0.25);
+  gap: 8px;
+  background: rgba(255,26,26,0.07);
+  border: 1px solid rgba(255,26,26,0.2);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  font-size: 0.85rem;
-  color: #FCD34D;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: #fca5a5;
   font-weight: 500;
   line-height: 1.5;
 }
 
-/* ── CTA ── */
+/* CTA */
 .offer__cta-wrap {
-  padding: 28px 40px;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .offer__cta-btn {
   width: 100%;
-  animation: pulse-glow 2.5s infinite;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 900;
-  letter-spacing: 0.04em;
-  padding: 22px 48px;
+  letter-spacing: 0.06em;
+  padding: 22px;
   border-radius: 14px;
-  box-shadow:
-    0 0 16px rgba(37, 99, 235, 0.6),
-    0 4px 20px rgba(37, 99, 235, 0.4);
 }
 
 .offer__urgency-note {
   font-size: 0.8rem;
-  color: #FCD34D;
+  color: #fca5a5;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .offer__guarantee {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.4);
+  font-size: 0.76rem;
+  color: var(--gray-dim);
 }
 
-/* ── Selos ── */
+/* Selos */
 .offer__seals {
   display: flex;
   gap: 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,26,26,0.1);
 }
 
 .offer__seal {
@@ -320,157 +310,50 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 16px 8px;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.55);
-  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-dim);
+  border-right: 1px solid rgba(255,26,26,0.1);
 }
 
-.offer__seal:last-child {
-  border-right: none;
-}
+.offer__seal:last-child { border-right: none; }
+.offer__seal span:first-child { font-size: 1.1rem; }
 
-.offer__seal span:first-child {
-  font-size: 1.2rem;
-}
-
-/* ─── RESPONSIVO MOBILE ─── */
+/* ─── MOBILE ─── */
 @media (max-width: 600px) {
-  .offer {
-    padding: 32px 10px;
-  }
+  .offer { padding: 40px 10px; }
 
-  /* Urgência menor */
-  .offer__urgency {
-    font-size: 0.78rem;
-    padding: 7px 14px;
-  }
-
-  /* ── Card com borda neon azul ── */
   .offer__card {
-    border-radius: 18px;
-    border: 2px solid #3B82F6;
-    box-shadow:
-      0 0 18px rgba(59, 130, 246, 0.55),
-      0 0 40px rgba(59, 130, 246, 0.22),
-      0 12px 40px rgba(0, 0, 0, 0.45);
-    background: rgba(10, 20, 50, 0.82);
+    border-radius: 16px;
+    border-width: 1.5px;
   }
 
-  /* Header compacto */
-  .offer__card-header {
-    padding: 14px 16px 10px;
-  }
+  .offer__card-header { padding: 18px 16px 14px; }
+  .offer__title { font-size: 1rem; font-weight: 800; }
 
-  .offer__title {
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-  }
+  .offer__price-block { padding: 16px; gap: 4px; }
+  .offer__price-promo { font-size: clamp(2.8rem, 12vw, 3.6rem); }
+  .offer__price-original { font-size: 1.05rem; }
 
-  .offer__subtitle {
-    font-size: 0.75rem;
-  }
+  .offer__bonus-block { padding: 14px 16px; gap: 10px; }
+  .offer__bonus-intro { font-size: 0.8rem; }
+  .offer__bonus-text  { font-size: 0.82rem; }
+  .offer__bonus-warning { font-size: 0.75rem; }
 
-  /* Bloco de preço compacto */
-  .offer__price-block {
-    padding: 14px 16px;
-    gap: 4px;
-  }
+  .offer__bonus-item--desktop-only { display: none; }
 
-  .offer__price-label {
-    font-size: 0.75rem;
-  }
-
-  .offer__price-original {
-    font-size: 1.1rem;
-  }
-
-  .offer__price-by-label {
-    font-size: 0.75rem;
-  }
-
-  /* Preço promo — compacto mas impactante */
-  .offer__price-promo {
-    font-size: clamp(2.6rem, 12vw, 3.4rem);
-    font-weight: 900;
-    text-shadow: 0 0 24px rgba(74, 222, 128, 0.5);
-  }
-
-  .offer__urgency-tag {
-    font-size: 0.7rem;
-    padding: 6px 14px;
-    margin-top: 6px;
-  }
-
-  /* Bônus compacto */
-  .offer__bonus-block {
-    padding: 12px 16px;
-    gap: 10px;
-  }
-
-  .offer__bonus-intro {
-    font-size: 0.8rem;
-  }
-
-  /* Esconde bônus extras no mobile — mantém só 🔥 e 🎯 */
-  .offer__bonus-item--desktop-only {
-    display: none;
-  }
-
-  .offer__bonus-icon {
-    font-size: 1rem;
-  }
-
-  .offer__bonus-text {
-    font-size: 0.84rem;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-  }
-
-  .offer__bonus-warning {
-    font-size: 0.75rem;
-    padding: 9px 12px;
-  }
-
-  /* CTA compacto e chamativo */
-  .offer__cta-wrap {
-    padding: 14px 16px;
-    gap: 8px;
-  }
+  .offer__cta-wrap { padding: 16px; gap: 8px; }
 
   .offer__cta-btn {
-    width: 100%;
-    max-width: 100%;
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    padding: 17px 16px;
-    box-sizing: border-box;
-    border-radius: 14px;
-    box-shadow:
-      0 0 16px rgba(37, 99, 235, 0.6),
-      0 4px 20px rgba(37, 99, 235, 0.4);
+    font-size: 0.98rem;
+    padding: 18px 16px;
+    border-radius: 12px;
   }
 
-  .offer__guarantee {
-    font-size: 0.72rem;
-  }
+  .offer__seal { font-size: 0.6rem; padding: 10px 4px; }
+  .offer__seal span:first-child { font-size: 0.95rem; }
 
-  /* Selos menores */
-  .offer__seals {
-    border-top: 1px solid rgba(59, 130, 246, 0.2);
-  }
-
-  .offer__seal {
-    font-size: 0.62rem;
-    font-weight: 600;
-    padding: 10px 4px;
-    gap: 3px;
-    color: rgba(255,255,255,0.65);
-  }
-
-  .offer__seal span:first-child {
-    font-size: 0.95rem;
-  }
+  .offer__live-bar { font-size: 0.72rem; padding: 7px 14px; }
+  .offer__urgency  { font-size: 0.8rem; padding: 8px 14px; }
 }

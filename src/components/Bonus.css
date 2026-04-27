@@ -1,75 +1,66 @@
-/* ─── BÔNUS ─── */
+/* ─── BÔNUS — Dark Premium ─── */
 .bonus {
   position: relative;
   padding: var(--section-pad);
-  background: linear-gradient(160deg, #F0F7FF 0%, #EEF2FF 100%);
+  background: var(--card-bg);
+  border-top: 1px solid rgba(255,26,26,0.1);
+  border-bottom: 1px solid rgba(255,26,26,0.1);
   overflow: hidden;
 }
 
-.bonus__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+.bonus__bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 
 .bonus__bg-glow {
   position: absolute;
-  width: 700px; height: 700px;
+  width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,26,26,0.07) 0%, transparent 70%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
+  filter: blur(60px);
 }
 
-/* Cabeçalho */
 .bonus__header {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 40px;
   position: relative;
   z-index: 1;
 }
 
-.bonus__title {
-  color: var(--gray-900);
-}
-
-/* ── Card principal ── */
+/* Card */
 .bonus__main-card {
   position: relative;
   z-index: 1;
-  max-width: 580px;
+  max-width: 560px;
   margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--black);
+  border: 1.5px solid rgba(255,26,26,0.35);
   border-radius: var(--radius-lg);
-  padding: 28px 32px;
-  box-shadow: var(--shadow-md);
+  padding: 28px 30px;
+  box-shadow: 0 0 28px rgba(255,26,26,0.1), 0 12px 40px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .bonus__main-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--blue-primary), var(--blue-light));
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-/* Texto de abertura */
 .bonus__intro {
-  font-size: 0.95rem;
-  color: var(--gray-700, #374151);
+  font-size: 0.92rem;
+  color: var(--gray);
   line-height: 1.6;
   font-style: italic;
   padding-bottom: 4px;
-  border-bottom: 1px solid var(--gray-100);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Lista de itens */
 .bonus__items {
   list-style: none;
   display: flex;
@@ -81,42 +72,33 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  animation: fadeInUp 0.5s ease both;
 }
 
-.bonus__item-icon {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  flex-shrink: 0;
-}
+.bonus__item-icon { font-size: 1rem; flex-shrink: 0; line-height: 1.5; }
 
 .bonus__item-text {
-  font-size: 0.92rem;
-  color: var(--gray-900);
+  font-size: 0.9rem;
+  color: var(--white);
   line-height: 1.5;
   font-weight: 700;
 }
 
-/* Aviso de escassez */
+/* Aviso */
 .bonus__warning {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  background: #FFFBEB;
-  border: 1px solid #FDE68A;
+  gap: 8px;
+  background: rgba(255,26,26,0.07);
+  border: 1px solid rgba(255,26,26,0.2);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 11px 14px;
 }
 
-.bonus__warning-icon {
-  font-size: 1rem;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
+.bonus__warning-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
 
 .bonus__warning p {
-  font-size: 0.85rem;
-  color: #92400E;
+  font-size: 0.82rem;
+  color: #fca5a5;
   line-height: 1.5;
   font-weight: 500;
 }
@@ -129,37 +111,23 @@
   gap: 10px;
 }
 
-.bonus__cta .btn-primary {
-  width: 100%;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-}
+.bonus__cta .btn-primary { width: 100%; font-weight: 900; }
 
 .bonus__cta-sub {
-  font-size: 0.78rem;
-  color: #D97706;
+  font-size: 0.76rem;
+  color: #fca5a5;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
-/* ─── RESPONSIVO ─── */
+/* ─── MOBILE ─── */
 @media (max-width: 640px) {
-  .bonus__main-card {
-    padding: 22px 18px;
-  }
+  .bonus__main-card { padding: 20px 16px; }
+  .bonus__intro { font-size: 0.85rem; }
+  .bonus__item-text { font-size: 0.84rem; }
 
-  .bonus__intro {
-    font-size: 0.88rem;
-  }
-
-  .bonus__item-text {
-    font-size: 0.85rem;
-  }
-
-  /* Botão dentro do card — não sai da borda */
   .bonus__cta .btn-primary {
-    font-size: 0.82rem;
-    padding: 14px 12px;
+    font-size: 0.9rem;
+    padding: 16px 12px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;

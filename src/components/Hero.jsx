@@ -4,30 +4,30 @@ import { trackEvent, withUtms } from '../useTracking'
 import './Hero.css'
 
 export default function Hero() {
-  const { hero } = SITE_CONFIG
-  const headlineLines = hero.headline.split('\n')
+  const { hero, name } = SITE_CONFIG
   const videoRef = useRef(null)
-
-  // Controla visibilidade da mensagem "Clique para ativar o som"
   const [showSoundHint, setShowSoundHint] = useState(true)
+  const [showReplay, setShowReplay]       = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
-
-    // Tenta autoplay mutado (compatibilidade máxima)
     video.muted = true
     video.play().catch(() => {})
 
-    // Some a mensagem após 4 segundos automaticamente
-    const timer = setTimeout(() => {
-      setShowSoundHint(false)
-    }, 4000)
+    // Some o hint após 4s
+    const t = setTimeout(() => setShowSoundHint(false), 4000)
 
-    return () => clearTimeout(timer)
+    // Ao terminar, mostra replay
+    const onEnded = () => setShowReplay(true)
+    video.addEventListener('ended', onEnded)
+
+    return () => {
+      clearTimeout(t)
+      video.removeEventListener('ended', onEnded)
+    }
   }, [])
 
-  // Ao clicar no vídeo: ativa o som e esconde a mensagem
   const handleVideoClick = () => {
     const video = videoRef.current
     if (!video) return
@@ -35,69 +35,77 @@ export default function Hero() {
     setShowSoundHint(false)
   }
 
+  const handleReplay = (e) => {
+    e.stopPropagation()
+    const video = videoRef.current
+    if (!video) return
+    video.currentTime = 0
+    video.muted = false
+    video.play().catch(() => {})
+    setShowReplay(false)
+  }
+
   return (
     <section className="hero" id="inicio">
       <div className="hero__bg" aria-hidden="true">
-        <div className="hero__bg-circle hero__bg-circle--1" />
-        <div className="hero__bg-circle hero__bg-circle--2" />
+        <div className="hero__bg-glow" />
       </div>
 
       <div className="container hero__container">
 
-        {/* ── COLUNA ESQUERDA: Vídeo ── */}
+        {/* ── Vídeo ── */}
         <div className="hero__video-col animate-fade-up">
           <div className="hero__video-wrapper" onClick={handleVideoClick}>
-
-            {/* ✏️ Troque o vídeo substituindo public/vls.mp4 */}
+            {/* ✏️ Troque substituindo public/vls.mp4 */}
             <video
               ref={videoRef}
               className="hero__video"
               src="/vls.mp4"
               poster="/video-thumb.jpg"
-              controls
               playsInline
               preload="metadata"
-              /* Sem loop — roda 1x só */
             />
 
-            {/* Mensagem "Clique para ativar o som" */}
-            <div
-              className={`hero__sound-hint ${showSoundHint ? 'hero__sound-hint--visible' : 'hero__sound-hint--hidden'}`}
-              aria-hidden={!showSoundHint}
-            >
-              <span className="hero__sound-hint-icon">🔊</span>
+            <div className={`hero__sound-hint ${showSoundHint ? 'hero__sound-hint--visible' : 'hero__sound-hint--hidden'}`}>
+              <span>🔊</span>
               <span>Clique para ativar o som</span>
             </div>
 
-            {/* Badge de exclusividade */}
-            <div className="hero__video-badge" aria-hidden="true">
-              <span>✦</span> Conteúdo Exclusivo
-            </div>
+            <button
+              className={`hero__replay-btn${showReplay ? '' : ' hero__replay-btn--hidden'}`}
+              onClick={handleReplay}
+              aria-label="Rever vídeo"
+            >
+              ↺ Rever
+            </button>
+
+            <div className="hero__video-badge">✦ Conteúdo Exclusivo</div>
           </div>
         </div>
 
-        {/* ── COLUNA DIREITA: Copy ── */}
+        {/* ── Copy ── */}
         <div className="hero__copy-col">
-          <span className="badge animate-fade-up">
+          <span className="hero__eyebrow animate-fade-up">
             ✦ Oferta por tempo limitado
           </span>
 
           <h1 className="hero__headline animate-fade-up-delay-1">
-            {headlineLines.map((line, i) => (
-              <span key={i}>
-                {i === 1 ? <em>{line}</em> : line}
-                {i < headlineLines.length - 1 && <br />}
-              </span>
-            ))}
+            Tem coisas minhas aqui que você{' '}
+            <em>nunca viu de verdade…</em>
           </h1>
 
           <p className="hero__subheadline animate-fade-up-delay-2">
-            {hero.subheadline}
+            O que eu mostro lá dentro não vai ficar disponível pra sempre.
           </p>
 
-          <p className="hero__reinforcement animate-fade-up-delay-3">
-            {hero.reinforcement}
-          </p>
+          <div className="hero__bullets animate-fade-up-delay-3">
+            {['Conteúdo exclusivo', 'Acesso imediato', 'Sem enrolação', 'Só aqui'].map(b => (
+              <div key={b} className="hero__bullet">
+                <span className="hero__bullet-dot" />
+                <span>{b}</span>
+              </div>
+            ))}
+          </div>
 
           <div className="hero__cta-wrap animate-fade-up-delay-4">
             <a
@@ -105,32 +113,12 @@ export default function Hero() {
               className="btn-primary btn-large"
               onClick={() => trackEvent('cta_hero_click', { location: 'hero' })}
             >
-              {hero.ctaText}
+              👁️ QUERO VER TUDO AGORA
             </a>
-            <p className="hero__cta-sub">{hero.ctaSubtext}</p>
-            {/* Micro prova social em tempo real */}
+            <p className="hero__cta-sub">🔒 Acesso imediato · Pagamento 100% seguro</p>
             <div className="hero__social-pill">
               <span className="hero__social-dot" />
               <span>🔥 Pessoas entrando agora · ⭐ 4.9/5 · 🔒 100% seguro</span>
-            </div>
-          </div>
-
-          <div className="hero__trust animate-fade-up-delay-4">
-            <div className="hero__trust-item">
-              <span className="hero__trust-icon">✔</span>
-              <span>Conteúdo exclusivo</span>
-            </div>
-            <div className="hero__trust-item">
-              <span className="hero__trust-icon">✔</span>
-              <span>Acesso imediato</span>
-            </div>
-            <div className="hero__trust-item">
-              <span className="hero__trust-icon">✔</span>
-              <span>Sem enrolação</span>
-            </div>
-            <div className="hero__trust-item">
-              <span className="hero__trust-icon">✔</span>
-              <span>Só aqui</span>
             </div>
           </div>
         </div>

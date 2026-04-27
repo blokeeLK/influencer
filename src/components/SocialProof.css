@@ -1,4 +1,4 @@
-/* ─── SOCIAL PROOF POPUP ─── */
+/* ─── SOCIAL PROOF POPUP — Dark Premium ─── */
 .social-proof {
   position: fixed;
   bottom: 24px;
@@ -7,51 +7,36 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(37, 99, 235, 0.12);
-  border-radius: 16px;
-  padding: 14px 18px;
+  background: rgba(15,15,15,0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,26,26,0.35);
+  border-radius: 14px;
+  padding: 13px 16px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 2px 8px rgba(37, 99, 235, 0.08);
-  max-width: 320px;
-  min-width: 260px;
+    0 0 20px rgba(255,26,26,0.15),
+    0 8px 32px rgba(0,0,0,0.6);
+  max-width: 300px;
+  min-width: 240px;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Entrada: desliza de baixo + fade in */
-.social-proof--in {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+.social-proof--in  { opacity: 1; transform: translateY(0) scale(1); }
+.social-proof--out { opacity: 0; transform: translateY(14px) scale(0.97); pointer-events: none; }
 
-/* Saída: desliza para baixo + fade out */
-.social-proof--out {
-  opacity: 0;
-  transform: translateY(16px) scale(0.97);
-}
-
-/* Avatar com inicial */
 .social-proof__avatar {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 38px; height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2563EB, #60A5FA);
+  background: linear-gradient(135deg, var(--red), #990000);
   color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 12px rgba(255,26,26,0.4);
 }
 
-/* Texto */
 .social-proof__text {
   display: flex;
   flex-direction: column;
@@ -61,71 +46,48 @@
 }
 
 .social-proof__name {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--gray-900);
+  color: var(--white);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .social-proof__msg {
-  font-size: 0.8rem;
-  color: var(--gray-600);
+  font-size: 0.76rem;
+  color: var(--gray);
   line-height: 1.4;
 }
 
-.social-proof__msg strong {
-  color: var(--blue-primary);
-  font-weight: 700;
-}
+.social-proof__msg strong { color: var(--red); font-weight: 700; }
 
-/* Badge de confirmação */
 .social-proof__badge {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
+  width: 20px; height: 20px;
   border-radius: 50%;
   background: #22C55E;
   color: #fff;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 4px rgba(34, 197, 94, 0.35);
+  display: flex; align-items: center; justify-content: center;
 }
 
 /* ─── MOBILE ─── */
 @media (max-width: 480px) {
   .social-proof {
-    bottom: 16px;
-    left: 12px;
+    bottom: 14px;
+    left: 10px;
     right: auto;
-    max-width: 220px;
+    max-width: 210px;
     min-width: 0;
-    padding: 10px 12px;
+    padding: 9px 11px;
     gap: 8px;
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
-  .social-proof__avatar {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-  }
-
-  .social-proof__name {
-    font-size: 0.78rem;
-  }
-
-  .social-proof__msg {
-    font-size: 0.7rem;
-  }
-
-  .social-proof__badge {
-    width: 18px;
-    height: 18px;
-    font-size: 0.62rem;
-  }
+  .social-proof__avatar { width: 28px; height: 28px; font-size: 0.75rem; }
+  .social-proof__name   { font-size: 0.75rem; }
+  .social-proof__msg    { font-size: 0.67rem; }
+  .social-proof__badge  { width: 16px; height: 16px; font-size: 0.55rem; }
 }
