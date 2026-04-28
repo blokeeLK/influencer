@@ -1,0 +1,103 @@
+/* ─── BENEFÍCIOS — Dark Premium ─── */
+.wyg {
+  padding: var(--section-pad);
+  background: var(--black);
+  border-top: 1px solid rgba(255,26,26,0.1);
+}
+
+.wyg__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Grid 3 colunas */
+.wyg__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Card */
+.wyg__card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255,26,26,0.25);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.wyg__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wyg__card:hover {
+  border-color: var(--red-border);
+  box-shadow: 0 0 24px rgba(255,26,26,0.12), 0 8px 32px rgba(0,0,0,0.5);
+  transform: translateY(-4px);
+}
+
+.wyg__card:hover::before { opacity: 1; }
+
+/* Ícone */
+.wyg__icon-wrap {
+  width: 48px; height: 48px;
+  background: var(--red-soft);
+  border: 1px solid var(--red-border);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.wyg__icon { font-size: 1.5rem; line-height: 1; }
+
+/* Texto */
+.wyg__text { display: flex; flex-direction: column; gap: 6px; }
+
+.wyg__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.wyg__desc {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* CTA intermediário */
+.wyg__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 48px;
+}
+
+.wyg__cta-sub {
+  font-size: 0.78rem;
+  color: var(--gray-dim);
+  letter-spacing: 0.02em;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 900px) {
+  .wyg__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .wyg__grid { grid-template-columns: 1fr; }
+}

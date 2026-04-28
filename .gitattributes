@@ -1,0 +1,4 @@
+# Vídeos commitados diretamente (sem LFS)
+*.mp4 binary
+*.mov binary
+*.webm binary

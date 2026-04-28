@@ -1,0 +1,204 @@
+/* ============================================================
+   ESTILOS GLOBAIS — Dark Premium
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black:       #050505;
+  --card-bg:     #0f0f0f;
+  --card-border: #1a1a1a;
+  --white:       #ffffff;
+  --gray:        #bdbdbd;
+  --gray-dim:    #6b6b6b;
+  --red:         #ff1a1a;
+  --red-glow:    rgba(255, 26, 26, 0.35);
+  --red-soft:    rgba(255, 26, 26, 0.12);
+  --red-border:  rgba(255, 26, 26, 0.55);
+
+  --font-body:    'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  --section-pad: 80px 24px;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+
+/* ─── CONTAINER ─── */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── BADGE ─── */
+.badge {
+  display: inline-block;
+  background: var(--red-soft);
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--red-border);
+}
+
+/* ─── BOTÃO PRINCIPAL (vermelho neon) ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 18px 40px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 24px var(--red-glow), 0 4px 20px rgba(255,26,26,0.3);
+  animation: btn-pulse 2.8s ease-in-out infinite;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 40px rgba(255,26,26,0.65), 0 8px 32px rgba(255,26,26,0.4);
+  background: #ff3333;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-large {
+  font-size: 1.2rem;
+  padding: 22px 60px;
+  border-radius: 100px;
+  letter-spacing: 0.07em;
+}
+
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 0 24px var(--red-glow), 0 4px 20px rgba(255,26,26,0.3); }
+  50%       { box-shadow: 0 0 44px rgba(255,26,26,0.6), 0 8px 32px rgba(255,26,26,0.45); }
+}
+
+/* ─── SECTION TITLE ─── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--white);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.section-subtitle {
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  color: var(--gray);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red-glow);
+  border-radius: 100px;
+  margin: 14px auto 0;
+}
+
+/* ─── SCROLL REVEAL ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-up           { animation: fadeInUp 0.7s ease both; }
+.animate-fade-up-delay-1   { animation: fadeInUp 0.7s 0.12s ease both; }
+.animate-fade-up-delay-2   { animation: fadeInUp 0.7s 0.24s ease both; }
+.animate-fade-up-delay-3   { animation: fadeInUp 0.7s 0.36s ease both; }
+.animate-fade-up-delay-4   { animation: fadeInUp 0.7s 0.48s ease both; }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--black); }
+::-webkit-scrollbar-thumb  { background: var(--red); border-radius: 100px; }
+
+/* ─── RESPONSIVO GLOBAL ─── */
+@media (max-width: 768px) {
+  :root { --section-pad: 56px 16px; }
+
+  .btn-primary,
+  .btn-large {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 18px 20px;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+  }
+}

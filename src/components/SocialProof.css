@@ -1,0 +1,93 @@
+/* ─── SOCIAL PROOF POPUP — Dark Premium ─── */
+.social-proof {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15,15,15,0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,26,26,0.35);
+  border-radius: 14px;
+  padding: 13px 16px;
+  box-shadow:
+    0 0 20px rgba(255,26,26,0.15),
+    0 8px 32px rgba(0,0,0,0.6);
+  max-width: 300px;
+  min-width: 240px;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.social-proof--in  { opacity: 1; transform: translateY(0) scale(1); }
+.social-proof--out { opacity: 0; transform: translateY(14px) scale(0.97); pointer-events: none; }
+
+.social-proof__avatar {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red), #990000);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 12px rgba(255,26,26,0.4);
+}
+
+.social-proof__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.social-proof__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social-proof__msg {
+  font-size: 0.76rem;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+.social-proof__msg strong { color: var(--red); font-weight: 700; }
+
+.social-proof__badge {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #22C55E;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 480px) {
+  .social-proof {
+    bottom: 14px;
+    left: 10px;
+    right: auto;
+    max-width: 210px;
+    min-width: 0;
+    padding: 9px 11px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .social-proof__avatar { width: 28px; height: 28px; font-size: 0.75rem; }
+  .social-proof__name   { font-size: 0.75rem; }
+  .social-proof__msg    { font-size: 0.67rem; }
+  .social-proof__badge  { width: 16px; height: 16px; font-size: 0.55rem; }
+}

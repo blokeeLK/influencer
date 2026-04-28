@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espera… Oferta Especial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #050505;
+      --card:  #0d0d0d;
+      --white: #ffffff;
+      --gray:  #b0b0b0;
+      --dim:   #555;
+      --red:         #ff1a1a;
+      --red-glow:    rgba(255,26,26,0.45);
+      --red-soft:    rgba(255,26,26,0.1);
+      --red-border:  rgba(255,26,26,0.6);
+      --green:       #4ade80;
+      --green-glow:  rgba(74,222,128,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Glow de fundo animado */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,26,26,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255,26,26,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bg-pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes bg-pulse {
+      from { opacity: 0.7; }
+      to   { opacity: 1; }
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border: 2px solid var(--red-border);
+      border-radius: 22px;
+      box-shadow:
+        0 0 32px rgba(255,26,26,0.3),
+        0 0 80px rgba(255,26,26,0.12),
+        0 24px 60px rgba(0,0,0,0.8);
+      overflow: hidden;
+      animation: card-glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes card-glow {
+      from { box-shadow: 0 0 32px rgba(255,26,26,0.3), 0 0 80px rgba(255,26,26,0.12), 0 24px 60px rgba(0,0,0,0.8); }
+      to   { box-shadow: 0 0 52px rgba(255,26,26,0.5), 0 0 100px rgba(255,26,26,0.2), 0 24px 60px rgba(0,0,0,0.8); }
+    }
+
+    /* Topo vermelho */
+    .card-top {
+      background: linear-gradient(135deg, #1a0000, #2d0000);
+      border-bottom: 1px solid rgba(255,26,26,0.25);
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    /* Corpo do card */
+    .card-body {
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Vídeo */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 520px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,26,26,0.4);
+      box-shadow: 0 0 20px rgba(255,26,26,0.2);
+      margin-bottom: 24px;
+      cursor: pointer;
+      background: #000;
+    }
+
+    .card-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Botão replay */
+    .replay-btn {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      z-index: 4;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,26,26,0.88);
+      border: none;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .replay-btn.visible { display: flex; }
+
+    .replay-btn:hover {
+      background: var(--red);
+      box-shadow: 0 0 16px var(--red-glow);
+    }
+
+    .sound-hint {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,26,26,0.35);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .sound-hint.hidden { opacity: 0; }
+
+    /* Headline */
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .headline span { color: var(--red); font-style: italic; }
+
+    /* Sub */
+    .sub {
+      font-size: 0.95rem;
+      color: var(--gray);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,26,26,0.15);
+      margin: 0 0 24px;
+    }
+
+    /* Timer */
+    .timer-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .timer-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .timer {
+      font-family: 'Inter', monospace;
+      font-size: clamp(2.6rem, 8vw, 3.6rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 24px rgba(255,26,26,0.5);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .timer.expired { color: var(--dim); text-shadow: none; }
+
+    /* Preço */
+    .price-block {
+      text-align: center;
+      margin-bottom: 22px;
+      background: radial-gradient(ellipse at center, rgba(74,222,128,0.05) 0%, transparent 70%);
+      padding: 16px 0 8px;
+      border-radius: 12px;
+    }
+
+    .price-from {
+      font-size: 0.8rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+
+    .price-original {
+      display: inline;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ef4444;
+      text-decoration: line-through;
+    }
+
+    .price-by {
+      font-size: 0.75rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 4px 0 2px;
+    }
+
+    .price-promo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 10vw, 4.8rem);
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      text-shadow: 0 0 30px var(--green-glow), 0 0 60px rgba(74,222,128,0.2);
+      animation: price-zoom 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes price-zoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.04); }
+    }
+
+    .price-period {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(74,222,128,0.7);
+    }
+
+    .price-expired-msg {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--dim);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* Benefícios */
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+      margin-bottom: 24px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .benefit-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green-glow);
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 14px;
+      border: none;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 0 28px rgba(255,26,26,0.5), 0 4px 20px rgba(255,26,26,0.35);
+      animation: btn-pulse 2.5s ease-in-out infinite;
+      margin-bottom: 12px;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 0 48px rgba(255,26,26,0.7), 0 8px 32px rgba(255,26,26,0.5);
+      background: #ff3333;
+    }
+
+    .cta-btn:active { transform: scale(0.99); }
+
+    .cta-btn.disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+      animation: none;
+      box-shadow: none;
+      pointer-events: none;
+    }
+
+    @keyframes btn-pulse {
+      0%,100% { box-shadow: 0 0 28px rgba(255,26,26,0.5), 0 4px 20px rgba(255,26,26,0.35); }
+      50%      { box-shadow: 0 0 52px rgba(255,26,26,0.75), 0 8px 36px rgba(255,26,26,0.55); }
+    }
+
+    .cta-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--dim);
+      line-height: 1.5;
+    }
+
+    /* Bloco impulso */
+    .impulse {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: rgba(255,26,26,0.05);
+      border: 1px solid rgba(255,26,26,0.15);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .impulse p {
+      font-size: 0.84rem;
+      color: var(--gray);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .impulse p strong { color: var(--white); font-style: normal; }
+
+    /* Back link */
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--gray); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      body { padding: 16px 12px; align-items: flex-start; }
+      .card-body { padding: 22px 18px 20px; }
+      .headline { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+      .timer { font-size: clamp(2.2rem, 10vw, 3rem); }
+      .price-promo { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .cta-btn { font-size: 1rem; padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+    <!-- Topo -->
+    <div class="card-top">
+      <p class="eyebrow">⚡ Oferta especial liberada</p>
+    </div>
+
+    <!-- Corpo -->
+    <div class="card-body">
+
+      <!-- Vídeo -->
+      <div class="video-wrap" id="videoWrap">
+        <!-- ✏️ Troque por outro vídeo se quiser -->
+        <video
+          id="lcVideo"
+          class="card-video"
+          src="/video2.mp4"
+          poster="/video-thumb.jpg"
+          playsinline
+          preload="metadata"
+        ></video>
+        <div class="sound-hint" id="soundHint">🔊 Clique para ativar o som</div>
+        <button class="replay-btn" id="replayBtn" aria-label="Rever vídeo">↺ Rever</button>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="headline">
+        Espera… <span>não fecha agora.</span>
+      </h1>
+
+      <p class="sub">
+        Antes de sair, resolvi liberar uma condição que não aparece na página principal.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- Timer -->
+      <div class="timer-wrap">
+        <span class="timer-label">⏰ Essa oferta some em</span>
+        <div class="timer" id="timer">03:00</div>
+      </div>
+
+      <!-- Preço -->
+      <div class="price-block">
+        <p class="price-from">De <span class="price-original">R$ 97,00</span></p>
+        <p class="price-by">por apenas</p>
+        <div class="price-promo" id="pricePromo">
+          R$ 14,90
+        </div>
+        <p class="price-expired-msg" id="expiredMsg">⛔ Oferta encerrada — preço voltou ao normal</p>
+      </div>
+
+      <!-- Benefícios -->
+      <div class="benefits">
+        <div class="benefit"><span class="benefit-dot"></span> Acesso imediato</div>
+        <div class="benefit"><span class="benefit-dot"></span> Conteúdo completo</div>
+        <div class="benefit"><span class="benefit-dot"></span> Sigilo total</div>
+        <div class="benefit"><span class="benefit-dot"></span> Oferta some ao sair</div>
+        <div class="benefit"><span class="benefit-dot"></span> Última chance real</div>
+      </div>
+
+      <!-- CTA -->
+      <!-- ✏️ Link do checkout R$14,90 -->
+      <a
+        href="https://pay.cakto.com.br/3dkohnt"
+        class="cta-btn"
+        id="ctaBtn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🔥 QUERO APROVEITAR AGORA
+      </a>
+
+      <p class="cta-note">Depois que fechar essa página, essa condição pode sumir.</p>
+
+      <!-- Bloco impulso -->
+      <div class="impulse">
+        <p><strong>Você já chegou até aqui…</strong></p>
+        <p>Faltou muito pouco. Agora depende só de você.</p>
+        <p>Essa condição não vai aparecer de novo depois que você fechar.</p>
+      </div>
+
+    </div>
+    <!-- fim card-body -->
+
+  </div>
+  <!-- fim card -->
+
+  <a href="/" class="back-link">← Voltar para a página principal</a>
+</div>
+
+<script>
+  // ── Vídeo autoplay muted + ativar som + replay ──
+  const video     = document.getElementById('lcVideo')
+  const hint      = document.getElementById('soundHint')
+  const wrap      = document.getElementById('videoWrap')
+  const replayBtn = document.getElementById('replayBtn')
+
+  if (video) {
+    video.muted = true
+    video.play().catch(() => {})
+
+    setTimeout(() => hint.classList.add('hidden'), 4000)
+
+    // Clique no vídeo: ativa som
+    wrap.addEventListener('click', (e) => {
+      if (e.target === replayBtn) return
+      video.muted = false
+      hint.classList.add('hidden')
+    })
+
+    // Ao terminar: mostra botão replay
+    video.addEventListener('ended', () => {
+      replayBtn.classList.add('visible')
+    })
+
+    // Botão replay
+    replayBtn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      video.currentTime = 0
+      video.muted = false
+      video.play().catch(() => {})
+      replayBtn.classList.remove('visible')
+    })
+  }
+
+  // ── Countdown 3:00 ──
+  const timerEl   = document.getElementById('timer')
+  const ctaBtn    = document.getElementById('ctaBtn')
+  const priceEl   = document.getElementById('pricePromo')
+  const expiredEl = document.getElementById('expiredMsg')
+
+  let total = 180 // 3 minutos em segundos
+
+  const tick = setInterval(() => {
+    total--
+    if (total <= 0) {
+      clearInterval(tick)
+      timerEl.textContent = '00:00'
+      timerEl.classList.add('expired')
+      ctaBtn.classList.add('disabled')
+      ctaBtn.textContent = '⛔ Oferta encerrada'
+      priceEl.style.display = 'none'
+      expiredEl.style.display = 'block'
+      return
+    }
+    const m = Math.floor(total / 60).toString().padStart(2, '0')
+    const s = (total % 60).toString().padStart(2, '0')
+    timerEl.textContent = `${m}:${s}`
+  }, 1000)
+</script>
+
+</body>
+</html>
