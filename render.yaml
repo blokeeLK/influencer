@@ -20,5 +20,8 @@ services:
         value: public, max-age=31536000, immutable
     routes:
       - type: rewrite
+        source: /lastchance
+        destination: /lastchance.html
+      - type: rewrite
         source: /*
         destination: /index.html
