@@ -117,7 +117,8 @@
     .video-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
+      max-height: 520px;
       border-radius: 12px;
       overflow: hidden;
       border: 1.5px solid rgba(255,26,26,0.4);
@@ -132,6 +133,36 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    /* Botão replay */
+    .replay-btn {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      z-index: 4;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,26,26,0.88);
+      border: none;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .replay-btn.visible { display: flex; }
+
+    .replay-btn:hover {
+      background: var(--red);
+      box-shadow: 0 0 16px var(--red-glow);
     }
 
     .sound-hint {
@@ -438,6 +469,7 @@
           preload="metadata"
         ></video>
         <div class="sound-hint" id="soundHint">🔊 Clique para ativar o som</div>
+        <button class="replay-btn" id="replayBtn" aria-label="Rever vídeo">↺ Rever</button>
       </div>
 
       <!-- Headline -->
@@ -507,10 +539,11 @@
 </div>
 
 <script>
-  // ── Vídeo autoplay muted + ativar som ao clicar ──
-  const video   = document.getElementById('lcVideo')
-  const hint    = document.getElementById('soundHint')
-  const wrap    = document.getElementById('videoWrap')
+  // ── Vídeo autoplay muted + ativar som + replay ──
+  const video     = document.getElementById('lcVideo')
+  const hint      = document.getElementById('soundHint')
+  const wrap      = document.getElementById('videoWrap')
+  const replayBtn = document.getElementById('replayBtn')
 
   if (video) {
     video.muted = true
@@ -518,9 +551,25 @@
 
     setTimeout(() => hint.classList.add('hidden'), 4000)
 
-    wrap.addEventListener('click', () => {
+    // Clique no vídeo: ativa som
+    wrap.addEventListener('click', (e) => {
+      if (e.target === replayBtn) return
       video.muted = false
       hint.classList.add('hidden')
+    })
+
+    // Ao terminar: mostra botão replay
+    video.addEventListener('ended', () => {
+      replayBtn.classList.add('visible')
+    })
+
+    // Botão replay
+    replayBtn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      video.currentTime = 0
+      video.muted = false
+      video.play().catch(() => {})
+      replayBtn.classList.remove('visible')
     })
   }
 
