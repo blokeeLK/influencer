@@ -7,6 +7,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+
+  <!-- ─── UTMify Pixel ─── -->
+  <!-- Pixel ID: 69ed1ffcc6ea276bad70c211 | NÃO REMOVER -->
+  <script>
+    if (!window.pixelId) {
+      window.pixelId = "69ed1ffcc6ea276bad70c211";
+      var _px = document.createElement("script");
+      _px.setAttribute("async", "");
+      _px.setAttribute("defer", "");
+      _px.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(_px);
+    }
+  </script>
+  <!-- UTMify UTM Preserver -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+  <!-- ─── /UTMify ─── -->
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -519,6 +542,13 @@
       >
         🔥 QUERO APROVEITAR AGORA
       </a>
+      <script>
+        document.getElementById('ctaBtn').addEventListener('click', function() {
+          window.dispatchEvent(new CustomEvent('utmify:event', {
+            detail: { event: 'InitiateCheckout', value: 'R$14,90', currency: 'BRL', page: 'lastchance' }
+          }))
+        })
+      </script>
 
       <p class="cta-note">Depois que fechar essa página, essa condição pode sumir.</p>
 
@@ -539,6 +569,18 @@
 </div>
 
 <script>
+  // ── PageView UTMify ──
+  window.addEventListener('load', function() {
+    window.dispatchEvent(new CustomEvent('utmify:event', {
+      detail: {
+        event: 'PageView',
+        url: window.location.href,
+        referrer: document.referrer || 'direct',
+        page: 'lastchance'
+      }
+    }))
+  })
+
   // ── Vídeo autoplay muted + ativar som + replay ──
   const video     = document.getElementById('lcVideo')
   const hint      = document.getElementById('soundHint')
