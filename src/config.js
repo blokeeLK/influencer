@@ -89,7 +89,7 @@ export const SITE_CONFIG = {
     title: 'Se sair dessa página, talvez não encontre esse valor de novo.',
     subtitle: 'Esse preço não vai durar. Não é papo de marketing — é real.',
     originalPrice: 'R$ 97,00',
-    promoPrice: 'R$ 19,90',
+    promoPrice: 'R$ 15,90',
     period: '/mês',
     urgencyText: '⚡ Oferta pode encerrar a qualquer momento',
     ctaText: '🔥 LIBERAR MEU ACESSO AGORA',
