@@ -47,7 +47,9 @@ function useExitIntent() {
     window.history.pushState({ lc: true }, '')
 
     const onPopState = (e) => {
-      // Usuário clicou em "voltar"
+      // Só redireciona se o estado anterior era o nosso marcador {lc: true}
+      // Isso evita disparar quando o usuário clica em links internos (#oferta, etc.)
+      if (e.state && e.state.lc === true) return
       redirect()
     }
     window.addEventListener('popstate', onPopState)

@@ -41,7 +41,7 @@ export default function Bonus() {
 
           <div className="bonus__cta">
             <a
-              href={withUtms(offer.ctaLink)}
+              href="#oferta"
               className="btn-primary btn-large"
               onClick={() => trackEvent('cta_bonus_click', { location: 'bonus' })}
             >

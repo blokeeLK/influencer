@@ -36,7 +36,7 @@ export default function WhatYouGet() {
 
         <div className="wyg__cta reveal">
           <a
-            href={withUtms(offer.ctaLink)}
+            href="#oferta"
             className="btn-primary btn-large"
             onClick={() => trackEvent('cta_wyg_click', { location: 'what_you_get' })}
           >
