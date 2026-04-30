@@ -43,44 +43,13 @@ function useExitIntent() {
       window.location.href = '/lastchance.html'
     }
 
-    // ── 1. Botão voltar — injeta estado falso no histórico para capturar popstate ──
-    window.history.pushState({ lc: true }, '')
-
-    const onPopState = (e) => {
-      // Só redireciona se o estado anterior era o nosso marcador {lc: true}
-      // Isso evita disparar quando o usuário clica em links internos (#oferta, etc.)
-      if (e.state && e.state.lc === true) return
-      redirect()
-    }
-    window.addEventListener('popstate', onPopState)
-
-    // ── 2. Fechar aba / trocar de site — beforeunload ──
-    const onBeforeUnload = (e) => {
-      // Não bloqueamos (UX ruim), mas marcamos e redirecionamos
-      // Nota: beforeunload não permite redirect síncrono em todos os browsers,
-      // mas o popstate cobre o caso de voltar
-      sessionStorage.setItem(KEY, '1')
-    }
-    window.addEventListener('beforeunload', onBeforeUnload)
-
-    // ── 3. Usuário sai da aba (mobile: minimiza, troca de app) ──
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'hidden') {
-        sessionStorage.setItem(KEY, '1')
-      }
-    }
-    document.addEventListener('visibilitychange', onVisibilityChange)
-
-    // ── 4. Mouse sai pela parte de cima (desktop exit intent) ──
+    // ── Mouse sai pela parte de cima (desktop exit intent) ──
     const onMouseLeave = (e) => {
       if (e.clientY <= 0) redirect()
     }
     document.addEventListener('mouseleave', onMouseLeave)
 
     return () => {
-      window.removeEventListener('popstate', onPopState)
-      window.removeEventListener('beforeunload', onBeforeUnload)
-      document.removeEventListener('visibilitychange', onVisibilityChange)
       document.removeEventListener('mouseleave', onMouseLeave)
     }
   }, [])
