@@ -30,6 +30,10 @@ export default function Offer() {
                 <span className="offer__price-period">{offer.period}</span>
               </div>
               <span className="offer__urgency-tag">{offer.urgencyText}</span>
+              <div className="offer__lifetime">
+                <span className="offer__lifetime-icon">♾️</span>
+                <span>Acesso <strong>vitalício</strong> — paga uma vez, tem para sempre</span>
+              </div>
             </div>
 
             <div className="offer__divider" />

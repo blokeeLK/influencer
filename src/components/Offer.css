@@ -361,3 +361,29 @@
   .offer__live-bar { font-size: 0.72rem; padding: 7px 14px; }
   .offer__urgency  { font-size: 0.8rem; padding: 8px 14px; }
 }
+
+
+/* Acesso vitalício */
+.offer__lifetime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.offer__lifetime strong {
+  font-weight: 800;
+  color: #4ade80;
+}
+
+.offer__lifetime-icon {
+  font-size: 1rem;
+}
