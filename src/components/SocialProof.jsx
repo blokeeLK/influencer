@@ -56,8 +56,8 @@ export default function SocialProof() {
       <div className="social-proof__text">
         <span className="social-proof__name">{name}</span>
         <span className="social-proof__msg">
-          acabou de comprar o acesso exclusivo por{' '}
-          <strong>R$19,90</strong>
+          Acabou de comprar o acesso exclusivo por{' '}
+          <strong>R$15,90</strong>
         </span>
       </div>
       <div className="social-proof__badge">✓</div>
