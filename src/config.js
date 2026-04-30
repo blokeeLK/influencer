@@ -90,7 +90,7 @@ export const SITE_CONFIG = {
     subtitle: 'Esse preço não vai durar. Não é papo de marketing — é real.',
     originalPrice: 'R$ 97,00',
     promoPrice: 'R$ 15,90',
-    period: '/mês',
+    period: '',
     urgencyText: '⚡ Oferta pode encerrar a qualquer momento',
     ctaText: '🔥 LIBERAR MEU ACESSO AGORA',
     ctaLink: 'https://pay.cakto.com.br/kgoxovy_862945',
