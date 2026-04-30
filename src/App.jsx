@@ -6,6 +6,7 @@ import Offer from './components/Offer'
 import Footer from './components/Footer'
 import PixelEvents from './components/PixelEvents'
 import SocialProof from './components/SocialProof'
+import Testimonials from './components/Testimonials'
 
 // ── Scroll Reveal ──
 function useScrollReveal() {
@@ -92,6 +93,7 @@ export default function App() {
       <PixelEvents />
       <Hero />
       <Carousel />
+      <Testimonials />
       <WhatYouGet />
       <Offer />
       <Footer />
