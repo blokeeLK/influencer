@@ -39,16 +39,7 @@ export default function Bonus() {
             <p>{bonusWarning}</p>
           </div>
 
-          <div className="bonus__cta">
-            <a
-              href="#oferta"
-              className="btn-primary btn-large"
-              onClick={() => trackEvent('cta_bonus_click', { location: 'bonus' })}
-            >
-              🔥 LIBERAR MEU ACESSO AGORA
-            </a>
-            <p className="bonus__cta-sub">⏰ Oferta pode encerrar a qualquer momento</p>
-          </div>
+
 
         </div>
 

@@ -71,13 +71,7 @@ export default function Hero() {
               <span>Clique para ativar o som</span>
             </div>
 
-            <button
-              className={`hero__replay-btn${showReplay ? '' : ' hero__replay-btn--hidden'}`}
-              onClick={handleReplay}
-              aria-label="Rever vídeo"
-            >
-              ↺ Rever
-            </button>
+
 
             <div className="hero__video-badge">✦ Conteúdo Exclusivo</div>
           </div>
@@ -108,14 +102,6 @@ export default function Hero() {
           </div>
 
           <div className="hero__cta-wrap animate-fade-up-delay-4">
-            <a
-              href={withUtms(hero.ctaLink)}
-              className="btn-primary btn-large"
-              onClick={() => trackEvent('cta_hero_click', { location: 'hero' })}
-            >
-              👁️ QUERO VER TUDO AGORA
-            </a>
-            <p className="hero__cta-sub">🔒 Acesso imediato · Pagamento 100% seguro</p>
             <div className="hero__social-pill">
               <span className="hero__social-dot" />
               <span>🔥 Pessoas entrando agora · ⭐ 4.9/5 · 🔒 100% seguro</span>

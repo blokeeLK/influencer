@@ -34,16 +34,7 @@ export default function WhatYouGet() {
           ))}
         </div>
 
-        <div className="wyg__cta reveal">
-          <a
-            href="#oferta"
-            className="btn-primary btn-large"
-            onClick={() => trackEvent('cta_wyg_click', { location: 'what_you_get' })}
-          >
-            👁️ QUERO VER TUDO AGORA
-          </a>
-          <p className="wyg__cta-sub">⏰ Oferta por tempo limitado · Acesso imediato</p>
-        </div>
+
 
       </div>
     </section>
