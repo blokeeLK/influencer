@@ -1,42 +1,32 @@
-// ============================================================
-// useTracking.js — Rastreamento de eventos UTMify
-// Dispara eventos para o pixel sem quebrar SSR/build.
-// Use: trackEvent('checkout_click') em qualquer componente.
-// ============================================================
+import posthog from 'posthog-js'
 
 /**
- * Dispara um evento customizado no pixel UTMify.
- * Roda apenas no browser (seguro para build Vite).
- *
- * @param {string} eventName  - Nome do evento (ex: 'checkout_click')
- * @param {object} [payload]  - Dados extras opcionais
+ * Dispara um evento em PostHog e UTMify simultaneamente.
+ * @param {string} eventName
+ * @param {object} [payload]
  */
 export function trackEvent(eventName, payload = {}) {
-  if (typeof window === 'undefined') return // seguro em SSR
+  if (typeof window === 'undefined') return
 
   try {
-    // UTMify usa window.dispatchEvent com CustomEvent
+    posthog.capture(eventName, payload)
+
     window.dispatchEvent(
       new CustomEvent('utmify:event', {
         detail: { event: eventName, ...payload },
       })
     )
 
-    // Fallback: log em dev para validar disparo
     if (import.meta.env.DEV) {
       console.log('[Tracking]', eventName, payload)
     }
-  } catch (e) {
-    // Nunca quebra o site por erro de rastreamento
-  }
+  } catch (e) {}
 }
 
 /**
  * Preserva UTMs da URL atual e os anexa a um link de destino.
- * Garante que o usuário não perca a origem ao clicar em checkout.
- *
- * @param {string} baseUrl - URL base do checkout/WhatsApp
- * @returns {string}       - URL com UTMs da página preservados
+ * @param {string} baseUrl
+ * @returns {string}
  */
 export function withUtms(baseUrl) {
   if (typeof window === 'undefined') return baseUrl

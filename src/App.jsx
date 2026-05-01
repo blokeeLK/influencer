@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import posthog from 'posthog-js'
 import Hero from './components/Hero'
 import Carousel from './components/Carousel'
 import WhatYouGet from './components/WhatYouGet'
@@ -40,6 +41,7 @@ function useExitIntent() {
       if (sessionStorage.getItem(KEY)) return
       redirected = true
       sessionStorage.setItem(KEY, '1')
+      posthog.capture('exit_intent_triggered')
       window.location.href = '/lastchance.html'
     }
 
