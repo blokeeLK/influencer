@@ -57,27 +57,27 @@ export const SITE_CONFIG = {
     {
       id: 1,
       icon: '🔥',
-      title: 'Meu ensaio completo pra você ver sem limite — do começo ao fim',
+      title: 'Meu ensaio completo sem cortes — Você vê tudo do começo ao fim, sem prévias cortadas.',
     },
     {
       id: 2,
       icon: '📸',
-      title: '+500 fotos que eu nunca postei abertas. Nada cortado.',
+      title: '+500 fotos privadas em alta qualidade — Conteúdos que eu não posto em nenhuma rede social.',
     },
     {
       id: 3,
-      icon: '📖',
-      title: 'Playboy completa em Full HD — cada página, cada detalhe',
+      icon: '🎬',
+      title: 'Vídeos exclusivos liberados no acesso — Momentos mais íntimos e naturais, só para quem entra.',
     },
     {
       id: 4,
-      icon: '📚',
-      title: 'Revista Sexy completa — conteúdo que normalmente eu guardo só pra mim',
+      icon: '💌',
+      title: 'Atualizações novas dentro do acesso — Sempre que eu liberar algo novo, você recebe lá dentro.',
     },
     {
       id: 5,
-      icon: '🎯',
-      title: 'Conteúdo especial sobre controle e conquista — isso muda seu jogo',
+      icon: '🎁',
+      title: 'Bônus surpresa para quem entrar hoje — Um conteúdo extra liberado junto com seu acesso.',
     },
   ],
 
